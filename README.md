@@ -1,16 +1,16 @@
 
 <p align="center"><img src="https://i.imgur.com/zbUTsRh.png"></p>
-<h1 align="center">Rules of Survival - Multi Hack</h1>
+<h1 align="center">Rules of Survival - Ultra Hack</h1>
 
 <p align="center">
-	<a href="https://discord.gg/VTMGTA4" alt="Join us on Discord !"><img src="https://img.shields.io/discord/379599906786115594.svg" /></a>
+	
 	<a href="https://github.com/Ashesh3/RosMultiHackv99/releases" alt="Total Download"><img src="https://img.shields.io/github/downloads/Ashesh3/RosMultiHackv99/total.svg" /></a>
 	<a href="https://github.com/Ashesh3/RosMultiHackv99/tree/master" alt="This Project is Maintained"><img src="https://img.shields.io/maintenance/yes/2018.svg" /></a>
 	<a href="https://github.com/Ashesh3/RosMultiHackv99/graphs/contributors" alt="Contributor List"><img src="https://img.shields.io/github/contributors/Ashesh3/RosMultiHackv99.svg" /></a>
 	<a href="https://www.unknowncheats.me/forum/rules-of-survival/259042-source-ros-multihackv99.html" alt="We Love Open Source"><img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" /></a>
 </p>
 
-![screenshot](https://i.imgur.com/1HqXP5j.jpg)
+![screenshot](https://i.imgur.com/nxBFbGJ.png)
 
 ## Features
 
@@ -21,8 +21,8 @@
 | Weapon            | Distance      |                | Nuke Player           |
 | Robot             | Smart Aim     |                | Chams*                |
 | Player Health     |               |                | Undetected            |
-| Player Distance   |               |                |                       |
-| Supply Box        |               |                |                       |
+| Player Distance   |               |                | Neat Menu             |
+| Supply Box        |               |                |CPU Usage Reduced to 5%|
 | Item Distance     |               |                |                       |
 | Swap Lines        |               |                |                       |
 | Drop Plane        |               |                |                       |
@@ -36,6 +36,7 @@
 
 #### - *Basic* -
 
+* **INSERT** - Toggle ESP
 * **F1** - Turn ON All ESP
 * **F2** - Turn ON basic ESP ```(Robot Only)```
 * **F3** - Turn ON Smart Aim ```(Recommended```)
@@ -79,7 +80,7 @@ You will need know the basic about how to compile a program using Visual Studio.
 * Brain
 
 ## Showcase:
-![alt text](https://i.imgur.com/kw3OfQj.jpg "Screenshot")
+![alt text](https://i.imgur.com/4cdZRCe.png "Screenshot")
 ![alt text](https://i.imgur.com/zjJdaBZ.jpg "Screenshot")
 ![alt text](https://i.imgur.com/UiBDs3d.jpg "Screenshot")
 ![alt text](https://i.imgur.com/IGwjflD.jpg "Screenshot")
