@@ -20,7 +20,7 @@
 | Item              | Height        | Position Lock  | Fullscreen Borderless |
 | Weapon            | Distance      |                | Nuke Player***        |
 | Robot             | Smart Aim     |                | Chams*                |
-| Player Health     |               |                | Undetected            |
+| Player Health     | AimHoldKey    |                | Undetected            |
 | Player Distance   |               |                | Neat Menu             |
 | Supply Box        |               |                |CPU Usage Reduced to 5%|
 | Item Distance     |               |                |                       |
