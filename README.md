@@ -18,7 +18,7 @@
 |   -------------   | ------------- | -------------  |      -------------    |
 | Player            | FOV           | Clipping Speed | Totally External      |
 | Item              | Height        | Position Lock  | Fullscreen Borderless |
-| Weapon            | Distance      |                | Nuke Player           |
+| Weapon            | Distance      |                | Nuke Player***        |
 | Robot             | Smart Aim     |                | Chams*                |
 | Player Health     |               |                | Undetected            |
 | Player Distance   |               |                | Neat Menu             |
@@ -31,6 +31,7 @@
 | Player Sekeleton* |               |                |                       | 
 
 ```* Will be implemented in future update```
+```*** Doesn't work anyone, PATCHED!```
 
 ## Controls
 
