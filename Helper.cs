@@ -1,6 +1,6 @@
 using System;
 
-namespace RoS
+namespace Whynot
 {
     internal class Helper
     {
