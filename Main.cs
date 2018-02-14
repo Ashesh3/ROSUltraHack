@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 
@@ -91,11 +91,18 @@ namespace Whynot
         }
         public
         const UInt32 SPI_GETMOUSESPEED = 0x0070;
-
+        [DllImport("user32.dll")]
+        static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
+        [DllImport("user32.dll")]
+        static extern bool SetForegroundWindow(IntPtr hWnd);
+        [DllImport("user32.dll")]
+        static extern bool ClientToScreen(IntPtr hWnd, ref Point lpPoint);
         [DllImport("User32.dll")]
         static extern Boolean SystemParametersInfo(UInt32 uiAction, UInt32 uiParam, IntPtr pvParam, UInt32 fWinIni);
         [DllImport("User32.dll")]
         private static extern bool GetAsyncKeyState(Keys vKey);
+        [DllImport("User32.dll")]
+        public static extern Int32 SetForegroundWindow(int hWnd);
         [DllImport("user32.dll")]
         [
          return: MarshalAs(UnmanagedType.Bool)
@@ -119,45 +126,57 @@ namespace Whynot
         [DllImport("user32.dll")]
         static extern bool AllowSetForegroundWindow(int dwProcessId);
         [DllImport("user32.dll")]
-        static extern bool SetForegroundWindow(IntPtr hWnd);
-        [DllImport("user32.dll")]
         static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+
 
         private void Main_Load(object sender, EventArgs e)
         {
-            IntPtr aaaa = WinGetHandle(WINDOW_NAME);
-            if (MessageBox.Show("Enable Fullscreen? Note: Aimbot works good on fullscreen only", "Fullscreen", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            try
             {
-                const int GWL_STYLE = (-16);
-                const int WS_VISIBLE = 0x10000000;
-                SetWindowLong(aaaa, GWL_STYLE, (WS_VISIBLE));
-                Rectangle resolution = Screen.PrimaryScreen.Bounds;
-                MoveWindow(aaaa, resolution.Top, resolution.Left, resolution.Width, resolution.Height, true);
+                IntPtr aaaa = WinGetHandle(WINDOW_NAME);
+                if (MessageBox.Show("Enable Fullscreen? Note: Aimbot works good on fullscreen only", "Fullscreen", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    const int GWL_STYLE = (-16);
+                    const int WS_VISIBLE = 0x10000000;
+                    SetWindowLong(aaaa, GWL_STYLE, (WS_VISIBLE));
+                    Rectangle resolution = Screen.PrimaryScreen.Bounds;
+                    MoveWindow(aaaa, resolution.Top, resolution.Left, resolution.Width, resolution.Height, true);
 
+                }
+
+
+                this.TopMost = true;
+                this.TopLevel = true;
+
+                this.BackColor = Color.Black;
+                this.TransparencyKey = Color.Black;
+                this.DoubleBuffered = true;
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.SetStyle(ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.AllPaintingInWmPaint | ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer, true);
+                Mem.Initialize("ros");
+                if (Mem.m_pProcessHandle == IntPtr.Zero)
+                {
+                    int num = (int)MessageBox.Show("Game Not Found", "Please Start Rules of Survival");
+                    this.Close();
+                }
+                else
+                {
+                    Thread.Sleep(1000);
+                    Main.SetWindowLong(this.Handle, -20, Main.GetWindowLong(this.Handle, -0) | 524288 | 32);
+                }
+                new Thread(new ThreadStart(this.thread)).Start();
             }
-
-
-            //ShowWindowAsync(aaaa, 5); //Fullscreenbug
-            this.TopMost = true;
-            this.TopLevel = true;
-
-            this.BackColor = Color.Black;
-            this.TransparencyKey = Color.Black;
-            this.DoubleBuffered = true;
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.SetStyle(ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.AllPaintingInWmPaint | ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer, true);
-            Mem.Initialize("ros");
-            if (Mem.m_pProcessHandle == IntPtr.Zero)
+            catch (Exception ee)
             {
-                int num = (int)MessageBox.Show("Game Not Found", "Please Start Rules of Survival");
-                this.Close();
+                MessageBox.Show("Crash Reason1: " + ee.Message);
+                Process.Start(Application.ExecutablePath);
+
+                //some time to start the new instance.
+                Thread.Sleep(2000);
+
+                Environment.Exit(-1); //Force termination of the current process.
             }
-            else
-            {
-                Thread.Sleep(1000);
-                Main.SetWindowLong(this.Handle, -0, Main.GetWindowLong(this.Handle, -0) | 524288 | 32);
-            }
-            new Thread(new ThreadStart(this.thread)).Start();
         }
         private void Loop_Tick(object sender, EventArgs e)
         {
@@ -357,37 +376,27 @@ namespace Whynot
 
         public void thread()
         {
-            Graphics graphics = this.CreateGraphics();
-            int numnya;
-            int Adress1, Adress2, num2;
-            Bitmap bitmap = new Bitmap(this.Width, this.Height);
-            Graphics drawnawbrudda = Graphics.FromImage((Image)bitmap);
-            Point bottom = new Point()
+            try
             {
-                X = this.ClientRectangle.Width / 2,
-                Y = this.ClientRectangle.Height / 2 + 200
-            };
-            int Adress3, num6, name, aa, a2, n;
-            string str;
-            double num4, num5;
-            float dist;
-            bool Player, Bot, Vehicle, Item, SuplyBox, Plane, weapon;
-            Vector2 center = new Vector2();
-
-            while (true)
-            {
-                try
+                Graphics graphics = this.CreateGraphics();
+                int numnya;
+                int Adress1, Adress2, num2;
+                Bitmap bitmap = new Bitmap(this.Width, this.Height);
+                Graphics drawnawbrudda = Graphics.FromImage((Image)bitmap);
+                Point bottom = new Point()
                 {
-                    MethodInvoker inv = delegate
-                    {
-                        SetWindowPos(this.Handle, new IntPtr(-1), 0, 0, 0, 0, 0x0001 | 0x0002);
-                        this.TopMost = true;
-                        this.TopLevel = true;
+                    X = this.ClientRectangle.Width / 2,
+                    Y = this.ClientRectangle.Height / 2 + 200
+                };
+                int Adress3, num6, name, aa, a2, n;
+                string str;
+                double num4, num5;
+                float dist;
+                bool Player, Bot, Vehicle, Item, SuplyBox, Plane, weapon;
+                Vector2 center = new Vector2();
 
-
-                    };
-                    this.Invoke(inv);
-
+                while (true)
+                {
 
                     center.X = this.Width / 2;
                     center.Y = (this.Height / 2) + 20;
@@ -403,21 +412,14 @@ namespace Whynot
                         Y = MyPosition.Y;
                         Z = MyPosition.Z;
                     }
+
                     Adress1 = Mem.ReadMemory<int>(Mem.ReadMemory<int>(Mem.BaseAddress + Offsets.Client) + Offsets.m_ppObjects);
                     Adress2 = Mem.ReadMemory<int>(Mem.ReadMemory<int>(Mem.ReadMemory<int>(Mem.ReadMemory<int>(Adress1))));
                     num2 = Mem.ReadMemory<int>(Adress1 + 4);
                     this.DrawMenu(drawnawbrudda);
                     while (Adress2 != num2 && Adress2 != num1)
                     {
-                        MethodInvoker invx = delegate
-                        {
-                            SetWindowPos(this.Handle, new IntPtr(-1), 0, 0, 0, 0, 0x0001 | 0x0002);
-                            this.TopMost = true;
-                            this.TopLevel = true;
 
-                        };
-
-                        this.Invoke(invx);
                         Adress3 = Mem.ReadMemory<int>(Adress2 + 12);
                         str = Mem.ReadString(Mem.ReadMemory<int>(Mem.ReadMemory<int>(Adress3 + 4) + 12), 20);
                         Mem.ReadMemory<int>(Adress3);
@@ -445,7 +447,7 @@ namespace Whynot
                         string typee;
                         if (Settings.scope == 1)
                         {
-                           typee= "8x and 4x";
+                            typee = "8x and 4x";
                         }
                         else
                         {
@@ -474,6 +476,7 @@ namespace Whynot
                         }
                         if ((Maths.WorldToScreen(EnemyPos, out screen, this.Width, this.Height)))
                         {
+
                             if ((Player ? 1 : (!Bot ? 0 : ((uint)num6 > 0U ? 1 : 0))) != 0)
                             {
                                 if (nuke)
@@ -515,11 +518,12 @@ namespace Whynot
                                     {
                                         if (Main.GetAsyncKeyState(Keys.CapsLock))
                                         {
-                                            if(Settings.SmartHeight)
+                                            if (Settings.SmartHeight)
                                                 Aimbot(MyPosition, EnemyPos);
                                             aim.X = screen.X + w;
                                             aim.Y = screen.Y + height;
                                             Cursor.Position = new Point((int)aim.X, (int)aim.Y);
+                                         
 
                                         }
                                     }
@@ -540,9 +544,9 @@ namespace Whynot
                             {
                                 if (nuke)
                                     Mem.WriteMemory<Vector3>(Adress3 + 16, MyPosition);
-                                if(Settings.BotESP)
+                                if (Settings.BotESP)
                                     drawnawbrudda.DrawString("ROBOT", this.font, Brushes.Chartreuse, screen.X, screen.Y - 20f);
-                                if(Settings.BotHealth)
+                                if (Settings.BotHealth)
                                     drawnawbrudda.DrawString("[ " + (object)Helper.GetDistance(MyPosition, EnemyPos, 10) + " Meter]", this.font, Brushes.Chartreuse, screen.X - 10f, screen.Y + 30f);
                                 drawnawbrudda.DrawLine(new Pen((Brush)new SolidBrush(colour.newco)), bottom, pointxx(screen));
                             }
@@ -590,18 +594,18 @@ namespace Whynot
 
                     }
                     graphics.DrawImage((Image)bitmap, 0, 0);
-                    Thread.Sleep(100);
+                    Thread.Sleep(10);
                 }
-                catch (Exception e)
-                {
-                    MessageBox.Show("Crash Reason: " + e.Message);
-                    Process.Start(Application.ExecutablePath);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Crash Reason2: " + e.Message);
+                Process.Start(Application.ExecutablePath);
 
-                    //some time to start the new instance.
-                    Thread.Sleep(2000);
+                //some time to start the new instance.
+                Thread.Sleep(2000);
 
-                    Environment.Exit(-1); //Force termination of the current process.
-                }
+                Environment.Exit(-1); //Force termination of the current process.
             }
         }
 
@@ -611,7 +615,8 @@ namespace Whynot
             if (Main.GetAsyncKeyState(Keys.Insert))
             {
                 Settings.menu = !Settings.menu;
-                Thread.Sleep(200);
+   
+                Thread.Sleep(100);
 
             }
 
@@ -688,7 +693,7 @@ namespace Whynot
 
                     X += speed;
                 else
-                    Settings.Distance+= 25;
+                    Settings.Distance += 25;
 
 
             }
@@ -790,6 +795,13 @@ namespace Whynot
                 Thread.Sleep(100);
 
             }
+            if (Main.GetAsyncKeyState(Keys.F6))
+            {
+                Settings.cursor = !Settings.cursor;
+
+                Thread.Sleep(100);
+
+            }
 
         }
 
@@ -827,7 +839,7 @@ namespace Whynot
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(343, 30);
+            this.label3.Location = new System.Drawing.Point(271, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 19);
             this.label3.TabIndex = 0;
@@ -838,12 +850,12 @@ namespace Whynot
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1151, 623);
+            this.ClientSize = new System.Drawing.Size(510, 283);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main";
-            this.Text = "ROS Exsceleton Rel";
+            this.Text = "NotepadChe";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
@@ -859,4 +871,6 @@ namespace Whynot
             public int bottom;
         }
     }
+
+
 }
