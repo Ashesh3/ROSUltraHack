@@ -22,9 +22,8 @@
         public static bool SupplyESP = false;
         public static bool PlaneESP = false;
 
-
         public static bool SmartHeight = false;
-
+        public static int wait = 50;
 
 
         public static bool ESP = true;

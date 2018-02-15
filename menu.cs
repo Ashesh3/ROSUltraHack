@@ -39,13 +39,45 @@ namespace RosPublicCheat
             SCOPE_BUTTON.Text = (Settings.scope == 0) ? "No , X2" : "X4 , x8";
             SHOW_FOV_BUTTON.Text = (Settings.DEBUG) ? "ON" : "OFF";
             NOCLIP_BUTTON.Text = (Settings.NoClip) ? "ON" : "OFF";
+            if (Settings.menu)
+            {
+                MethodInvoker ss = delegate
+                {
+                    Visible = true;
+                    this.Show();
+                    this.TopMost = true;
+                    this.BringToFront();
+
+
+
+                };
+                this.Invoke(ss);
+            }
+            else
+            {
+                MethodInvoker sss = delegate
+                {
+                    this.Visible = false;
+                    this.Hide();
+
+                };
+                this.Invoke(sss);
+            }
+
+        }
+        static void MyHandler(object sender, UnhandledExceptionEventArgs args)
+        {
+            Exception e = (Exception)args.ExceptionObject;
+            MessageBox.Show("MyHandler caught : " + e.Message + "\n\n" + "Stack:\n" + e.StackTrace);
         }
         private void Main_Load(object sender, EventArgs e)
         {
+            AppDomain currentDomain = AppDomain.CurrentDomain;
+            currentDomain.UnhandledException += new UnhandledExceptionEventHandler(MyHandler);
             this.TopMost = true;
             this.TopLevel = true;
 
-            this.DoubleBuffered = true;
+         //   this.DoubleBuffered = true;
             this.FormBorderStyle = FormBorderStyle.None;
             new Thread(new ThreadStart(this.thread)).Start();
             update();
@@ -54,20 +86,11 @@ namespace RosPublicCheat
 
         public void thread()
         {
-
+            AppDomain currentDomain = AppDomain.CurrentDomain;
+            currentDomain.UnhandledException += new UnhandledExceptionEventHandler(MyHandler);
             while (true)
             {
-                MethodInvoker inv = delegate
-               {
-         SetWindowPos(this.Handle, new IntPtr(-1), 0, 0, 0, 0, 0x0001 | 0x0002);
-         this.TopMost = true;
-         this.TopLevel = true;
-
-
-     };
-                if (Settings.menu)
-                    this.Invoke(inv);
-
+    
                 MethodInvoker up = delegate
             {
                 update();
@@ -77,24 +100,7 @@ namespace RosPublicCheat
                 this.Invoke(up);
                 Thread.Sleep(100);
 
-                if (Settings.menu)
-                {
-                    MethodInvoker ss = delegate
-                    {
-                        this.Visible = true;
-
-                    };
-                    this.Invoke(ss);
-                }
-                else
-                {
-                    MethodInvoker sss = delegate
-                    {
-                        this.Visible = false;
-
-                    };
-                    this.Invoke(sss);
-                }
+               
             }
         }
 
@@ -191,6 +197,12 @@ namespace RosPublicCheat
         private void FOV_BAR_Scroll(object sender, EventArgs e)
         {
             Settings.FOV = FOV_BAR.Value;
+        }
+
+        private void delay_bar_Scroll(object sender, EventArgs e)
+        {
+            Settings.wait = delay_bar.Value;
+            sleep_value.Text = Settings.wait.ToString();
         }
     }
 }

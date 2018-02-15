@@ -64,32 +64,39 @@ namespace RosPublicCheat
             this.TABS = new System.Windows.Forms.TabControl();
             this.ESP_TAB = new System.Windows.Forms.TabPage();
             this.AIMBOT_TAB = new System.Windows.Forms.TabPage();
+            this.AIMBOT_BUTTON = new System.Windows.Forms.Button();
+            this.AIMBOT = new System.Windows.Forms.Label();
+            this.SHOW_FOV_BUTTON = new System.Windows.Forms.Button();
+            this.FOV_SHOW = new System.Windows.Forms.Label();
+            this.SCOPE_BUTTON = new System.Windows.Forms.Button();
+            this.scope = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.HOLDKEY_BUTTON = new System.Windows.Forms.Button();
             this.SMARTAIM = new System.Windows.Forms.Label();
             this.SMARTAIM_BUTTON = new System.Windows.Forms.Button();
             this.FOV_BAR = new System.Windows.Forms.TrackBar();
             this.FOV_LABEL = new System.Windows.Forms.Label();
-            this.NOCLIP = new System.Windows.Forms.Label();
             this.RANGE_AIMBOT = new System.Windows.Forms.TrackBar();
-            this.NOCLIP_BUTTON = new System.Windows.Forms.Button();
             this.AIMBOT_DISTANCE = new System.Windows.Forms.Label();
+            this.NOCLIP_TAB = new System.Windows.Forms.TabPage();
+            this.NOCLLIP_CONTROLS = new System.Windows.Forms.Label();
+            this.NOCLIP = new System.Windows.Forms.Label();
+            this.NOCLIP_BUTTON = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.credit = new System.Windows.Forms.Label();
-            this.scope = new System.Windows.Forms.Label();
-            this.SCOPE_BUTTON = new System.Windows.Forms.Button();
-            this.NOCLIP_TAB = new System.Windows.Forms.TabPage();
-            this.SHOW_FOV_BUTTON = new System.Windows.Forms.Button();
-            this.FOV_SHOW = new System.Windows.Forms.Label();
-            this.AIMBOT = new System.Windows.Forms.Label();
-            this.AIMBOT_BUTTON = new System.Windows.Forms.Button();
-            this.NOCLLIP_CONTROLS = new System.Windows.Forms.Label();
+            this.MISC_TAB = new System.Windows.Forms.TabPage();
+            this.delay_bar = new System.Windows.Forms.TrackBar();
+            this.delay_label = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.sleep_value = new System.Windows.Forms.Label();
             this.TABS.SuspendLayout();
             this.ESP_TAB.SuspendLayout();
             this.AIMBOT_TAB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FOV_BAR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RANGE_AIMBOT)).BeginInit();
             this.NOCLIP_TAB.SuspendLayout();
+            this.MISC_TAB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.delay_bar)).BeginInit();
             this.SuspendLayout();
             // 
             // ESP_PLAYER
@@ -385,6 +392,7 @@ namespace RosPublicCheat
             this.TABS.Controls.Add(this.ESP_TAB);
             this.TABS.Controls.Add(this.AIMBOT_TAB);
             this.TABS.Controls.Add(this.NOCLIP_TAB);
+            this.TABS.Controls.Add(this.MISC_TAB);
             this.TABS.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TABS.Location = new System.Drawing.Point(12, 65);
             this.TABS.Name = "TABS";
@@ -450,6 +458,78 @@ namespace RosPublicCheat
             this.AIMBOT_TAB.Size = new System.Drawing.Size(769, 308);
             this.AIMBOT_TAB.TabIndex = 1;
             this.AIMBOT_TAB.Text = "AIMBOT";
+            // 
+            // AIMBOT_BUTTON
+            // 
+            this.AIMBOT_BUTTON.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.AIMBOT_BUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AIMBOT_BUTTON.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AIMBOT_BUTTON.Location = new System.Drawing.Point(182, 23);
+            this.AIMBOT_BUTTON.Name = "AIMBOT_BUTTON";
+            this.AIMBOT_BUTTON.Size = new System.Drawing.Size(124, 32);
+            this.AIMBOT_BUTTON.TabIndex = 35;
+            this.AIMBOT_BUTTON.Text = "OFF";
+            this.AIMBOT_BUTTON.UseVisualStyleBackColor = false;
+            this.AIMBOT_BUTTON.Click += new System.EventHandler(this.Buttons_click);
+            // 
+            // AIMBOT
+            // 
+            this.AIMBOT.AutoSize = true;
+            this.AIMBOT.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AIMBOT.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AIMBOT.Location = new System.Drawing.Point(19, 26);
+            this.AIMBOT.Name = "AIMBOT";
+            this.AIMBOT.Size = new System.Drawing.Size(110, 32);
+            this.AIMBOT.TabIndex = 34;
+            this.AIMBOT.Text = "AIMBOT";
+            // 
+            // SHOW_FOV_BUTTON
+            // 
+            this.SHOW_FOV_BUTTON.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SHOW_FOV_BUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SHOW_FOV_BUTTON.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SHOW_FOV_BUTTON.Location = new System.Drawing.Point(595, 78);
+            this.SHOW_FOV_BUTTON.Name = "SHOW_FOV_BUTTON";
+            this.SHOW_FOV_BUTTON.Size = new System.Drawing.Size(124, 32);
+            this.SHOW_FOV_BUTTON.TabIndex = 45;
+            this.SHOW_FOV_BUTTON.Text = "OFF";
+            this.SHOW_FOV_BUTTON.UseVisualStyleBackColor = false;
+            this.SHOW_FOV_BUTTON.Click += new System.EventHandler(this.Buttons_click);
+            // 
+            // FOV_SHOW
+            // 
+            this.FOV_SHOW.AutoSize = true;
+            this.FOV_SHOW.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FOV_SHOW.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.FOV_SHOW.Location = new System.Drawing.Point(420, 78);
+            this.FOV_SHOW.Name = "FOV_SHOW";
+            this.FOV_SHOW.Size = new System.Drawing.Size(146, 32);
+            this.FOV_SHOW.TabIndex = 44;
+            this.FOV_SHOW.Text = "SHOW FOV";
+            // 
+            // SCOPE_BUTTON
+            // 
+            this.SCOPE_BUTTON.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SCOPE_BUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SCOPE_BUTTON.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SCOPE_BUTTON.Location = new System.Drawing.Point(595, 26);
+            this.SCOPE_BUTTON.Name = "SCOPE_BUTTON";
+            this.SCOPE_BUTTON.Size = new System.Drawing.Size(124, 32);
+            this.SCOPE_BUTTON.TabIndex = 43;
+            this.SCOPE_BUTTON.Text = "NO, x2";
+            this.SCOPE_BUTTON.UseVisualStyleBackColor = false;
+            this.SCOPE_BUTTON.Click += new System.EventHandler(this.Buttons_click);
+            // 
+            // scope
+            // 
+            this.scope.AutoSize = true;
+            this.scope.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scope.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.scope.Location = new System.Drawing.Point(420, 23);
+            this.scope.Name = "scope";
+            this.scope.Size = new System.Drawing.Size(91, 32);
+            this.scope.TabIndex = 42;
+            this.scope.Text = "SCOPE";
             // 
             // label1
             // 
@@ -524,17 +604,6 @@ namespace RosPublicCheat
             this.FOV_LABEL.TabIndex = 36;
             this.FOV_LABEL.Text = "FOV";
             // 
-            // NOCLIP
-            // 
-            this.NOCLIP.AutoSize = true;
-            this.NOCLIP.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NOCLIP.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.NOCLIP.Location = new System.Drawing.Point(15, 26);
-            this.NOCLIP.Name = "NOCLIP";
-            this.NOCLIP.Size = new System.Drawing.Size(102, 32);
-            this.NOCLIP.TabIndex = 32;
-            this.NOCLIP.Text = "NOCLIP";
-            // 
             // RANGE_AIMBOT
             // 
             this.RANGE_AIMBOT.LargeChange = 100;
@@ -548,19 +617,6 @@ namespace RosPublicCheat
             this.RANGE_AIMBOT.Value = 10;
             this.RANGE_AIMBOT.Scroll += new System.EventHandler(this.Scrolled);
             // 
-            // NOCLIP_BUTTON
-            // 
-            this.NOCLIP_BUTTON.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.NOCLIP_BUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NOCLIP_BUTTON.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NOCLIP_BUTTON.Location = new System.Drawing.Point(178, 26);
-            this.NOCLIP_BUTTON.Name = "NOCLIP_BUTTON";
-            this.NOCLIP_BUTTON.Size = new System.Drawing.Size(124, 32);
-            this.NOCLIP_BUTTON.TabIndex = 33;
-            this.NOCLIP_BUTTON.Text = "OFF";
-            this.NOCLIP_BUTTON.UseVisualStyleBackColor = false;
-            this.NOCLIP_BUTTON.Click += new System.EventHandler(this.Buttons_click);
-            // 
             // AIMBOT_DISTANCE
             // 
             this.AIMBOT_DISTANCE.AutoSize = true;
@@ -571,41 +627,6 @@ namespace RosPublicCheat
             this.AIMBOT_DISTANCE.Size = new System.Drawing.Size(132, 32);
             this.AIMBOT_DISTANCE.TabIndex = 34;
             this.AIMBOT_DISTANCE.Text = "DISTANCE";
-            // 
-            // credit
-            // 
-            this.credit.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.credit.Font = new System.Drawing.Font("MS Reference Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.credit.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.credit.Location = new System.Drawing.Point(9, 9);
-            this.credit.Name = "credit";
-            this.credit.Size = new System.Drawing.Size(780, 53);
-            this.credit.TabIndex = 37;
-            this.credit.Text = "ROS MULTIHACK v101 ~ by Ashesh";
-            // 
-            // scope
-            // 
-            this.scope.AutoSize = true;
-            this.scope.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scope.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.scope.Location = new System.Drawing.Point(420, 23);
-            this.scope.Name = "scope";
-            this.scope.Size = new System.Drawing.Size(91, 32);
-            this.scope.TabIndex = 42;
-            this.scope.Text = "SCOPE";
-            // 
-            // SCOPE_BUTTON
-            // 
-            this.SCOPE_BUTTON.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.SCOPE_BUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SCOPE_BUTTON.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SCOPE_BUTTON.Location = new System.Drawing.Point(595, 26);
-            this.SCOPE_BUTTON.Name = "SCOPE_BUTTON";
-            this.SCOPE_BUTTON.Size = new System.Drawing.Size(124, 32);
-            this.SCOPE_BUTTON.TabIndex = 43;
-            this.SCOPE_BUTTON.Text = "NO, x2";
-            this.SCOPE_BUTTON.UseVisualStyleBackColor = false;
-            this.SCOPE_BUTTON.Click += new System.EventHandler(this.Buttons_click);
             // 
             // NOCLIP_TAB
             // 
@@ -620,53 +641,6 @@ namespace RosPublicCheat
             this.NOCLIP_TAB.TabIndex = 2;
             this.NOCLIP_TAB.Text = "NOCLIP";
             // 
-            // SHOW_FOV_BUTTON
-            // 
-            this.SHOW_FOV_BUTTON.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.SHOW_FOV_BUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SHOW_FOV_BUTTON.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SHOW_FOV_BUTTON.Location = new System.Drawing.Point(595, 78);
-            this.SHOW_FOV_BUTTON.Name = "SHOW_FOV_BUTTON";
-            this.SHOW_FOV_BUTTON.Size = new System.Drawing.Size(124, 32);
-            this.SHOW_FOV_BUTTON.TabIndex = 45;
-            this.SHOW_FOV_BUTTON.Text = "OFF";
-            this.SHOW_FOV_BUTTON.UseVisualStyleBackColor = false;
-            this.SHOW_FOV_BUTTON.Click += new System.EventHandler(this.Buttons_click);
-            // 
-            // FOV_SHOW
-            // 
-            this.FOV_SHOW.AutoSize = true;
-            this.FOV_SHOW.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FOV_SHOW.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.FOV_SHOW.Location = new System.Drawing.Point(420, 78);
-            this.FOV_SHOW.Name = "FOV_SHOW";
-            this.FOV_SHOW.Size = new System.Drawing.Size(146, 32);
-            this.FOV_SHOW.TabIndex = 44;
-            this.FOV_SHOW.Text = "SHOW FOV";
-            // 
-            // AIMBOT
-            // 
-            this.AIMBOT.AutoSize = true;
-            this.AIMBOT.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AIMBOT.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AIMBOT.Location = new System.Drawing.Point(19, 26);
-            this.AIMBOT.Name = "AIMBOT";
-            this.AIMBOT.Size = new System.Drawing.Size(110, 32);
-            this.AIMBOT.TabIndex = 34;
-            this.AIMBOT.Text = "AIMBOT";
-            // 
-            // AIMBOT_BUTTON
-            // 
-            this.AIMBOT_BUTTON.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.AIMBOT_BUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AIMBOT_BUTTON.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AIMBOT_BUTTON.Location = new System.Drawing.Point(182, 23);
-            this.AIMBOT_BUTTON.Name = "AIMBOT_BUTTON";
-            this.AIMBOT_BUTTON.Size = new System.Drawing.Size(124, 32);
-            this.AIMBOT_BUTTON.TabIndex = 35;
-            this.AIMBOT_BUTTON.Text = "OFF";
-            this.AIMBOT_BUTTON.UseVisualStyleBackColor = false;
-            // 
             // NOCLLIP_CONTROLS
             // 
             this.NOCLLIP_CONTROLS.AutoSize = true;
@@ -678,13 +652,107 @@ namespace RosPublicCheat
             this.NOCLLIP_CONTROLS.Text = "Right Control Key + Arrow Keys - Move Forward/Backward/Right/Left\r\nBack Space Key" +
     " - Fly Up\r\nRight Shift Key - Fly Down";
             // 
+            // NOCLIP
+            // 
+            this.NOCLIP.AutoSize = true;
+            this.NOCLIP.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NOCLIP.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.NOCLIP.Location = new System.Drawing.Point(15, 26);
+            this.NOCLIP.Name = "NOCLIP";
+            this.NOCLIP.Size = new System.Drawing.Size(102, 32);
+            this.NOCLIP.TabIndex = 32;
+            this.NOCLIP.Text = "NOCLIP";
+            // 
+            // NOCLIP_BUTTON
+            // 
+            this.NOCLIP_BUTTON.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.NOCLIP_BUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NOCLIP_BUTTON.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NOCLIP_BUTTON.Location = new System.Drawing.Point(178, 26);
+            this.NOCLIP_BUTTON.Name = "NOCLIP_BUTTON";
+            this.NOCLIP_BUTTON.Size = new System.Drawing.Size(124, 32);
+            this.NOCLIP_BUTTON.TabIndex = 33;
+            this.NOCLIP_BUTTON.Text = "OFF";
+            this.NOCLIP_BUTTON.UseVisualStyleBackColor = false;
+            this.NOCLIP_BUTTON.Click += new System.EventHandler(this.Buttons_click);
+            // 
+            // credit
+            // 
+            this.credit.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.credit.Font = new System.Drawing.Font("MS Reference Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.credit.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.credit.Location = new System.Drawing.Point(9, 9);
+            this.credit.Name = "credit";
+            this.credit.Size = new System.Drawing.Size(780, 53);
+            this.credit.TabIndex = 37;
+            this.credit.Text = "ROS MULTIHACK v101 ~ by Ashesh";
+            // 
+            // MISC_TAB
+            // 
+            this.MISC_TAB.BackColor = System.Drawing.Color.Black;
+            this.MISC_TAB.Controls.Add(this.sleep_value);
+            this.MISC_TAB.Controls.Add(this.label2);
+            this.MISC_TAB.Controls.Add(this.delay_bar);
+            this.MISC_TAB.Controls.Add(this.delay_label);
+            this.MISC_TAB.Location = new System.Drawing.Point(4, 32);
+            this.MISC_TAB.Name = "MISC_TAB";
+            this.MISC_TAB.Padding = new System.Windows.Forms.Padding(3);
+            this.MISC_TAB.Size = new System.Drawing.Size(769, 308);
+            this.MISC_TAB.TabIndex = 3;
+            this.MISC_TAB.Text = "Misc";
+            // 
+            // delay_bar
+            // 
+            this.delay_bar.LargeChange = 10;
+            this.delay_bar.Location = new System.Drawing.Point(155, 26);
+            this.delay_bar.Maximum = 200;
+            this.delay_bar.Name = "delay_bar";
+            this.delay_bar.Size = new System.Drawing.Size(124, 56);
+            this.delay_bar.SmallChange = 2;
+            this.delay_bar.TabIndex = 39;
+            this.delay_bar.Value = 50;
+            this.delay_bar.Scroll += new System.EventHandler(this.delay_bar_Scroll);
+            // 
+            // delay_label
+            // 
+            this.delay_label.AutoSize = true;
+            this.delay_label.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delay_label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.delay_label.Location = new System.Drawing.Point(20, 26);
+            this.delay_label.Name = "delay_label";
+            this.delay_label.Size = new System.Drawing.Size(79, 32);
+            this.delay_label.TabIndex = 38;
+            this.delay_label.Text = "Delay";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(22, 85);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(510, 192);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "Controls the delay between drawing on screen:\r\n\r\nLesser Value: Lag Free but may c" +
+    "rash more\r\nHigher Value: No crash but may lag\r\n\r\nUse whatever value is good for " +
+    "you.\r\n\r\nRecommended: 50\r\n";
+            // 
+            // sleep_value
+            // 
+            this.sleep_value.AutoSize = true;
+            this.sleep_value.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.sleep_value.Location = new System.Drawing.Point(300, 26);
+            this.sleep_value.Name = "sleep_value";
+            this.sleep_value.Size = new System.Drawing.Size(36, 24);
+            this.sleep_value.TabIndex = 41;
+            this.sleep_value.Text = "50";
+            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(794, 415);
+            this.ClientSize = new System.Drawing.Size(793, 411);
             this.ControlBox = false;
             this.Controls.Add(this.credit);
             this.Controls.Add(this.TABS);
@@ -703,6 +771,9 @@ namespace RosPublicCheat
             ((System.ComponentModel.ISupportInitialize)(this.RANGE_AIMBOT)).EndInit();
             this.NOCLIP_TAB.ResumeLayout(false);
             this.NOCLIP_TAB.PerformLayout();
+            this.MISC_TAB.ResumeLayout(false);
+            this.MISC_TAB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.delay_bar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -756,5 +827,10 @@ namespace RosPublicCheat
         public Label AIMBOT;
         public Button AIMBOT_BUTTON;
         private Label NOCLLIP_CONTROLS;
+        private TabPage MISC_TAB;
+        private TrackBar delay_bar;
+        public Label delay_label;
+        private Label sleep_value;
+        private Label label2;
     }
 }

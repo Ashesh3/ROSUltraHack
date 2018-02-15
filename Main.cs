@@ -1,7 +1,7 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Drawing;
-
+using System.Security.Permissions;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
@@ -128,10 +128,17 @@ namespace Whynot
         [DllImport("user32.dll")]
         static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 
+        static void MyHandler(object sender, UnhandledExceptionEventArgs args)
+        {
+            Exception e = (Exception)args.ExceptionObject;
+            MessageBox.Show("MyHandler caught : " + e.Message+"\n\n"+"Stack:\n"+e.StackTrace);
+        }
 
 
         private void Main_Load(object sender, EventArgs e)
         {
+            AppDomain currentDomain = AppDomain.CurrentDomain;
+            currentDomain.UnhandledException += new UnhandledExceptionEventHandler(MyHandler);
             try
             {
                 IntPtr aaaa = WinGetHandle(WINDOW_NAME);
@@ -374,8 +381,12 @@ namespace Whynot
 
         }
 
+        [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.ControlAppDomain)]
         public void thread()
         {
+            AppDomain currentDomain = AppDomain.CurrentDomain;
+            currentDomain.UnhandledException += new UnhandledExceptionEventHandler(MyHandler);
+
             try
             {
                 Graphics graphics = this.CreateGraphics();
@@ -594,7 +605,7 @@ namespace Whynot
 
                     }
                     graphics.DrawImage((Image)bitmap, 0, 0);
-                    Thread.Sleep(10);
+                    Thread.Sleep(Settings.wait);
                 }
             }
             catch (Exception e)
@@ -795,13 +806,6 @@ namespace Whynot
                 Thread.Sleep(100);
 
             }
-     
-        
-
-
-
-
-
 
         }
 
