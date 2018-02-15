@@ -795,13 +795,13 @@ namespace Whynot
                 Thread.Sleep(100);
 
             }
-            if (Main.GetAsyncKeyState(Keys.F6))
-            {
-                Settings.cursor = !Settings.cursor;
+     
+        
 
-                Thread.Sleep(100);
 
-            }
+
+
+
 
         }
 
