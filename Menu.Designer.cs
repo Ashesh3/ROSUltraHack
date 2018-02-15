@@ -82,13 +82,13 @@ namespace RosPublicCheat
             this.NOCLLIP_CONTROLS = new System.Windows.Forms.Label();
             this.NOCLIP = new System.Windows.Forms.Label();
             this.NOCLIP_BUTTON = new System.Windows.Forms.Button();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.credit = new System.Windows.Forms.Label();
             this.MISC_TAB = new System.Windows.Forms.TabPage();
+            this.sleep_value = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.delay_bar = new System.Windows.Forms.TrackBar();
             this.delay_label = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.sleep_value = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.credit = new System.Windows.Forms.Label();
             this.TABS.SuspendLayout();
             this.ESP_TAB.SuspendLayout();
             this.AIMBOT_TAB.SuspendLayout();
@@ -676,17 +676,6 @@ namespace RosPublicCheat
             this.NOCLIP_BUTTON.UseVisualStyleBackColor = false;
             this.NOCLIP_BUTTON.Click += new System.EventHandler(this.Buttons_click);
             // 
-            // credit
-            // 
-            this.credit.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.credit.Font = new System.Drawing.Font("MS Reference Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.credit.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.credit.Location = new System.Drawing.Point(9, 9);
-            this.credit.Name = "credit";
-            this.credit.Size = new System.Drawing.Size(780, 53);
-            this.credit.TabIndex = 37;
-            this.credit.Text = "ROS MULTIHACK v101 ~ by Ashesh";
-            // 
             // MISC_TAB
             // 
             this.MISC_TAB.BackColor = System.Drawing.Color.Black;
@@ -700,6 +689,28 @@ namespace RosPublicCheat
             this.MISC_TAB.Size = new System.Drawing.Size(769, 308);
             this.MISC_TAB.TabIndex = 3;
             this.MISC_TAB.Text = "Misc";
+            // 
+            // sleep_value
+            // 
+            this.sleep_value.AutoSize = true;
+            this.sleep_value.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.sleep_value.Location = new System.Drawing.Point(300, 26);
+            this.sleep_value.Name = "sleep_value";
+            this.sleep_value.Size = new System.Drawing.Size(36, 24);
+            this.sleep_value.TabIndex = 41;
+            this.sleep_value.Text = "50";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(22, 85);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(510, 192);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "Controls the delay between drawing on screen:\r\n\r\nLesser Value: Lag Free but may c" +
+    "rash more\r\nHigher Value: No crash but may lag\r\n\r\nUse whatever value is good for " +
+    "you.\r\n\r\nRecommended: 50\r\n";
             // 
             // delay_bar
             // 
@@ -724,27 +735,16 @@ namespace RosPublicCheat
             this.delay_label.TabIndex = 38;
             this.delay_label.Text = "Delay";
             // 
-            // label2
+            // credit
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(22, 85);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(510, 192);
-            this.label2.TabIndex = 40;
-            this.label2.Text = "Controls the delay between drawing on screen:\r\n\r\nLesser Value: Lag Free but may c" +
-    "rash more\r\nHigher Value: No crash but may lag\r\n\r\nUse whatever value is good for " +
-    "you.\r\n\r\nRecommended: 50\r\n";
-            // 
-            // sleep_value
-            // 
-            this.sleep_value.AutoSize = true;
-            this.sleep_value.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.sleep_value.Location = new System.Drawing.Point(300, 26);
-            this.sleep_value.Name = "sleep_value";
-            this.sleep_value.Size = new System.Drawing.Size(36, 24);
-            this.sleep_value.TabIndex = 41;
-            this.sleep_value.Text = "50";
+            this.credit.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.credit.Font = new System.Drawing.Font("MS Reference Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.credit.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.credit.Location = new System.Drawing.Point(9, 9);
+            this.credit.Name = "credit";
+            this.credit.Size = new System.Drawing.Size(780, 53);
+            this.credit.TabIndex = 37;
+            this.credit.Text = "ROS ULTRAHACK V2.1 by Ashesh";
             // 
             // menu
             // 
