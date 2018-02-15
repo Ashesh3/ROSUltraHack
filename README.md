@@ -3,8 +3,6 @@
 <h1 align="center">Rules of Survival - Ultra Hack</h1>
 
 <p align="center">
-	<a href="https://discord.gg/VTMGTA4" alt="Join us on Discord !">
-		<img src="https://img.shields.io/discord/379599906786115594.svg" /></a>
 	<a href="https://github.com/Ashesh3/ROSUltraHack/releases" alt="Total Download">
 		<img src="https://img.shields.io/github/downloads/Ashesh3/ROSUltraHack/total.svg" /></a>
 	<a href="https://github.com/Ashesh3/ROSUltraHack/tree/master" alt="This Project is Maintained">
