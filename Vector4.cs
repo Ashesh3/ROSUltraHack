@@ -1,16 +1,14 @@
-﻿
-
 using System;
 using Microsoft.DirectX;
 
 namespace Whynot
 {
-  public struct Vector4
-  {
-    public float W;
-    public float X;
-    public float Y;
-    public float Z;
+    public struct Vector4
+    {
+        public float W;
+        public float X;
+        public float Y;
+        public float Z;
         private int v1;
         private int v2;
         private int v3;
