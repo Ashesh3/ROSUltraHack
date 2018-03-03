@@ -504,7 +504,7 @@ namespace Whynot
                                 }
                                 if(Settings.BOX)
                                 {
-                                    //2D Box
+                                    //2D Box  - IndigoCDN
                                     float entityHeight = 21.5f;
                                     Vector2 pRoot;
                                     Maths.WorldToScreen(EnemyPos, out pRoot, this.Width, this.Height);
