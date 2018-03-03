@@ -31,10 +31,9 @@
 | Swap Lines        |               |                |                         |
 | Drop Plane        |               |                |                         |
 | Vehicle           |               |                |                         |
-| Player Box*       |               |                |                         |
-| Player Sekeleton* |               |                |                         | 
+| Player Box        |               |                |                         |
+| Item Names        |               |                |                         | 
 
-```* Will be implemented in future update```
 ```*** Doesn't work anyone, PATCHED!```
 
 ## Controls
