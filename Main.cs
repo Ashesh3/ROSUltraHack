@@ -7,6 +7,8 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Diagnostics;
 using ROS;
+using System.Linq;
+using RosPublicCheat;
 
 namespace Whynot
 {
@@ -59,9 +61,10 @@ namespace Whynot
         {
             return new Point((int)vec.X - 5, (int)vec.Y - 3);
         }
-
+        
         public Main()
         {
+          
             Process[] processlist = Process.GetProcesses();
 
             foreach (Process process in processlist)
@@ -405,8 +408,7 @@ namespace Whynot
                 float dist;
                 bool Player, Bot, Vehicle, Item, SuplyBox, Plane, weapon;
                 Vector2 center = new Vector2();
-
-                while (true)
+               while (true)
                 {
 
                     center.X = this.Width / 2;
@@ -498,8 +500,32 @@ namespace Whynot
                                     drawnawbrudda.DrawString("Player", this.font, Brushes.Red, screen.X, screen.Y - 20f);
                                     if (Settings.PlayerLines)
                                         drawnawbrudda.DrawLine(Dpen, bottom, pointxx(screen));
+                                   
                                 }
+                                if(Settings.BOX)
+                                {
+                                    //2D Box
+                                    float entityHeight = 21.5f;
+                                    Vector2 pRoot;
+                                    Maths.WorldToScreen(EnemyPos, out pRoot, this.Width, this.Height);
+                                    Vector3 eHead = new Vector3() { X = EnemyPos.X, Y = EnemyPos.Y + entityHeight, Z = EnemyPos.Z };
+                                    Vector2 pHead;
+                                    Maths.WorldToScreen(eHead, out pHead, this.Width, this.Height);
 
+                                    Rectangle rect = new Rectangle();
+                                    float dist2 = Helper.GetDistance(MyPosition, EnemyPos, 10);
+                                    rect.Width = (int)(700 / dist2);
+                                    if (rect.Width > 100) rect.Width = 100;
+                                    rect.Height = (int)(pRoot.Y - pHead.Y);
+
+                                    rect.X = (int)pRoot.X - rect.Width / 2;
+                                    rect.Y = (int)pRoot.Y - (rect.Height);
+                                    if (dist2 > 25)
+                                        rect.Y = ((int)pRoot.Y - (rect.Height)) + 15;
+                                    drawnawbrudda.DrawRectangle(new Pen(Color.Purple), rect);
+                                    //2D Box
+                                }
+                               
 
                                 if (Settings.PlayerHealth)
                                     drawnawbrudda.DrawString("[ " + (object)num6 + "HP ]", this.font, Brushes.Aqua, screen.X - 15f, screen.Y + 15f);
@@ -522,32 +548,32 @@ namespace Whynot
                                 dist = Helper.GetDistance(MyPosition, EnemyPos, 10);
                                 if (dist < Settings.Distance && Settings.Aimbot && num6 > 0 && (Maths.InsideCircle((int)center.X, (int)center.Y, Settings.FOV, (int)screen.X, (int)screen.Y)))
                                 {
+
                                     Vector2 aim;
-                                    aim.X = 0;
-                                    aim.Y = 0;
-                                    if (Settings.holdkey)
+                                 if(Settings.SmartHeight)
+                                        Aimbot(MyPosition, EnemyPos);
+                                    MethodInvoker insv3 = delegate
                                     {
-                                        if (Main.GetAsyncKeyState(Keys.CapsLock))
+                                        if (Settings.holdkey)
                                         {
-                                            if (Settings.SmartHeight)
-                                                Aimbot(MyPosition, EnemyPos);
+                                            if (Main.GetAsyncKeyState(Keys.CapsLock))
+                                            {
+                                                aim.X = screen.X + w;
+                                                aim.Y = screen.Y + height;
+                                                Cursor.Position = this.PointToClient(new Point((int)aim.X, (int)aim.Y));
+
+
+                                            }
+                                        }
+                                        else
+                                        {
                                             aim.X = screen.X + w;
                                             aim.Y = screen.Y + height;
-                                            Cursor.Position = new Point((int)aim.X, (int)aim.Y);
-                                         
+                                            Cursor.Position = this.PointToClient(new Point((int)aim.X, (int)aim.Y));
 
                                         }
-                                    }
-                                    else
-                                    {
-                                        if (Settings.SmartHeight)
-                                            Aimbot(MyPosition, EnemyPos);
-                                        aim.X = screen.X + w;
-                                        aim.Y = screen.Y + height;
-                                        Cursor.Position = new Point((int)aim.X, (int)aim.Y);
-
-                                    }
-
+                                    };
+                                    this.Invoke(insv3);
 
                                 }
                             }
@@ -560,12 +586,19 @@ namespace Whynot
                                 if (Settings.BotHealth)
                                     drawnawbrudda.DrawString("[ " + (object)Helper.GetDistance(MyPosition, EnemyPos, 10) + " Meter]", this.font, Brushes.Chartreuse, screen.X - 10f, screen.Y + 30f);
                                 drawnawbrudda.DrawLine(new Pen((Brush)new SolidBrush(colour.newco)), bottom, pointxx(screen));
+
+                             
                             }
 
                             if (Item)
                             {
+                                int cliententitytable = Mem.ReadMemory<int>(Adress3 + 0x100);
+                                int cliententitytableptr = Mem.ReadMemory<int>(cliententitytable + 0x14);
+                                int propID = Mem.ReadMemory<int>(Mem.ReadMemory<int>(cliententitytableptr + 0x2C) + 0x8);
+                                string itemName;
+                                Helper.Items.TryGetValue(propID, out itemName);
                                 if (Settings.ItemESP)
-                                    drawnawbrudda.DrawString("Item", this.font, Brushes.Green, screen.X - 10f, screen.Y);
+                                    drawnawbrudda.DrawString(itemName, this.font, Brushes.Green, screen.X - 10f, screen.Y);
                                 if (Settings.ItemDistance)
                                     drawnawbrudda.DrawString("[ " + (object)Helper.GetDistance(MyPosition, EnemyPos, 10) + " Meter]", this.font, Brushes.White, screen.X - 10f, screen.Y + 15f);
                             }
@@ -635,12 +668,14 @@ namespace Whynot
             {
 
                 Settings.PlayerESP = true;
-                Settings.PlayerLines = true;
                 Settings.ESP = true;
+
                 Settings.PlayerHealth = true;
                 Settings.PlayerDistance = true;
                 Settings.ItemESP = true;
                 Settings.ItemDistance = true;
+                Settings.BotESP = true;
+                Settings.PlayerLines = true;
                 Settings.SupplyESP = true;
                 Settings.VehicleESP = true;
                 Settings.VehicleDistance = true;
@@ -703,7 +738,7 @@ namespace Whynot
                 if (Main.GetAsyncKeyState(Keys.RControlKey))
 
                     X += speed;
-                else
+                else if(Settings.Distance < 950)
                     Settings.Distance += 25;
 
 
@@ -714,7 +749,7 @@ namespace Whynot
                 if (Main.GetAsyncKeyState(Keys.RControlKey))
 
                     Z -= speed;
-                else
+                else if(Settings.FOV>13)
                     Settings.FOV -= 1;
 
 
@@ -725,8 +760,8 @@ namespace Whynot
                 if (Main.GetAsyncKeyState(Keys.RControlKey))
 
                     Z += speed;
-                else
-                    Settings.FOV += 1;
+                else if(Settings.FOV<198)
+                         Settings.FOV += 1;
 
 
             }
@@ -763,11 +798,12 @@ namespace Whynot
 
                     X -= speed;
                 else
+                    if(Settings.Distance > 30)
                     Settings.Distance -= 25;
                 Thread.Sleep(100);
 
             }
-            if (Main.GetAsyncKeyState(Keys.LMenu))
+            if (Main.GetAsyncKeyState(Keys.LShiftKey))
             {
                 Settings.Aimbot = !Settings.Aimbot;
                 Thread.Sleep(100);
@@ -775,11 +811,20 @@ namespace Whynot
 
             if (Main.GetAsyncKeyState(Keys.K))
             {
-                for (int i = 0; i < 5; i++)
-                    ++w;
+                w += 5;
 
-                Thread.Sleep(100);
 
+            }
+            if (Main.GetAsyncKeyState(Keys.F5))
+            {
+
+                    Settings.passthr = !Settings.passthr;
+                    if (Settings.passthr)
+                        Mem.WriteMemory<float>(Mem.BaseAddress + 0x157CA48, -0.89999998f);
+                    else
+                        Mem.WriteMemory<float>(Mem.BaseAddress + 0x157CA48, -0.500f);
+                    Thread.Sleep(100);
+             
             }
             if (Main.GetAsyncKeyState(Keys.U))
             {
@@ -799,11 +844,9 @@ namespace Whynot
             }
             if (Main.GetAsyncKeyState(Keys.L))
             {
-                for (int i = 0; i < 5; i++)
-                    --w;
+                w -= 5;
 
 
-                Thread.Sleep(100);
 
             }
 

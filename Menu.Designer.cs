@@ -79,16 +79,18 @@ namespace RosPublicCheat
             this.RANGE_AIMBOT = new System.Windows.Forms.TrackBar();
             this.AIMBOT_DISTANCE = new System.Windows.Forms.Label();
             this.NOCLIP_TAB = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.WALLKILL_BUTTON = new System.Windows.Forms.Button();
             this.NOCLLIP_CONTROLS = new System.Windows.Forms.Label();
             this.NOCLIP = new System.Windows.Forms.Label();
             this.NOCLIP_BUTTON = new System.Windows.Forms.Button();
             this.MISC_TAB = new System.Windows.Forms.TabPage();
-            this.sleep_value = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.delay_bar = new System.Windows.Forms.TrackBar();
             this.delay_label = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.credit = new System.Windows.Forms.Label();
+            this.box = new System.Windows.Forms.Label();
+            this.BOX_BUTTON = new System.Windows.Forms.Button();
             this.TABS.SuspendLayout();
             this.ESP_TAB.SuspendLayout();
             this.AIMBOT_TAB.SuspendLayout();
@@ -96,7 +98,6 @@ namespace RosPublicCheat
             ((System.ComponentModel.ISupportInitialize)(this.RANGE_AIMBOT)).BeginInit();
             this.NOCLIP_TAB.SuspendLayout();
             this.MISC_TAB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.delay_bar)).BeginInit();
             this.SuspendLayout();
             // 
             // ESP_PLAYER
@@ -126,7 +127,7 @@ namespace RosPublicCheat
             this.ESP_PLAYER_DISTANCE.AutoSize = true;
             this.ESP_PLAYER_DISTANCE.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ESP_PLAYER_DISTANCE.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ESP_PLAYER_DISTANCE.Location = new System.Drawing.Point(20, 152);
+            this.ESP_PLAYER_DISTANCE.Location = new System.Drawing.Point(20, 146);
             this.ESP_PLAYER_DISTANCE.Name = "ESP_PLAYER_DISTANCE";
             this.ESP_PLAYER_DISTANCE.Size = new System.Drawing.Size(132, 32);
             this.ESP_PLAYER_DISTANCE.TabIndex = 3;
@@ -159,7 +160,7 @@ namespace RosPublicCheat
             this.ESP_ROBOT.AutoSize = true;
             this.ESP_ROBOT.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ESP_ROBOT.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ESP_ROBOT.Location = new System.Drawing.Point(20, 217);
+            this.ESP_ROBOT.Location = new System.Drawing.Point(20, 223);
             this.ESP_ROBOT.Name = "ESP_ROBOT";
             this.ESP_ROBOT.Size = new System.Drawing.Size(63, 32);
             this.ESP_ROBOT.TabIndex = 6;
@@ -192,7 +193,7 @@ namespace RosPublicCheat
             this.ESP_BOT_HEALTH.AutoSize = true;
             this.ESP_BOT_HEALTH.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ESP_BOT_HEALTH.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ESP_BOT_HEALTH.Location = new System.Drawing.Point(20, 258);
+            this.ESP_BOT_HEALTH.Location = new System.Drawing.Point(20, 264);
             this.ESP_BOT_HEALTH.Name = "ESP_BOT_HEALTH";
             this.ESP_BOT_HEALTH.Size = new System.Drawing.Size(132, 32);
             this.ESP_BOT_HEALTH.TabIndex = 15;
@@ -268,7 +269,7 @@ namespace RosPublicCheat
             this.ESP_BOT_HEALTH_BUTTON.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ESP_BOT_HEALTH_BUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ESP_BOT_HEALTH_BUTTON.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ESP_BOT_HEALTH_BUTTON.Location = new System.Drawing.Point(183, 261);
+            this.ESP_BOT_HEALTH_BUTTON.Location = new System.Drawing.Point(183, 267);
             this.ESP_BOT_HEALTH_BUTTON.Name = "ESP_BOT_HEALTH_BUTTON";
             this.ESP_BOT_HEALTH_BUTTON.Size = new System.Drawing.Size(124, 32);
             this.ESP_BOT_HEALTH_BUTTON.TabIndex = 22;
@@ -281,7 +282,7 @@ namespace RosPublicCheat
             this.ESP_BOT_BUTTON.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ESP_BOT_BUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ESP_BOT_BUTTON.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ESP_BOT_BUTTON.Location = new System.Drawing.Point(183, 217);
+            this.ESP_BOT_BUTTON.Location = new System.Drawing.Point(183, 223);
             this.ESP_BOT_BUTTON.Name = "ESP_BOT_BUTTON";
             this.ESP_BOT_BUTTON.Size = new System.Drawing.Size(124, 32);
             this.ESP_BOT_BUTTON.TabIndex = 23;
@@ -294,7 +295,7 @@ namespace RosPublicCheat
             this.ESP_PLAYER_DISTANCE_BUTTON.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ESP_PLAYER_DISTANCE_BUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ESP_PLAYER_DISTANCE_BUTTON.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ESP_PLAYER_DISTANCE_BUTTON.Location = new System.Drawing.Point(183, 155);
+            this.ESP_PLAYER_DISTANCE_BUTTON.Location = new System.Drawing.Point(183, 149);
             this.ESP_PLAYER_DISTANCE_BUTTON.Name = "ESP_PLAYER_DISTANCE_BUTTON";
             this.ESP_PLAYER_DISTANCE_BUTTON.Size = new System.Drawing.Size(124, 32);
             this.ESP_PLAYER_DISTANCE_BUTTON.TabIndex = 24;
@@ -404,6 +405,8 @@ namespace RosPublicCheat
             // 
             this.ESP_TAB.BackColor = System.Drawing.Color.Black;
             this.ESP_TAB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ESP_TAB.Controls.Add(this.box);
+            this.ESP_TAB.Controls.Add(this.BOX_BUTTON);
             this.ESP_TAB.Controls.Add(this.ESP_PLAYER_DISTANCE_BUTTON);
             this.ESP_TAB.Controls.Add(this.ESP_PLAYER);
             this.ESP_TAB.Controls.Add(this.ESP_ITEM);
@@ -609,7 +612,6 @@ namespace RosPublicCheat
             this.RANGE_AIMBOT.LargeChange = 100;
             this.RANGE_AIMBOT.Location = new System.Drawing.Point(182, 78);
             this.RANGE_AIMBOT.Maximum = 1000;
-            this.RANGE_AIMBOT.Minimum = 10;
             this.RANGE_AIMBOT.Name = "RANGE_AIMBOT";
             this.RANGE_AIMBOT.Size = new System.Drawing.Size(124, 56);
             this.RANGE_AIMBOT.SmallChange = 50;
@@ -631,6 +633,8 @@ namespace RosPublicCheat
             // NOCLIP_TAB
             // 
             this.NOCLIP_TAB.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.NOCLIP_TAB.Controls.Add(this.label3);
+            this.NOCLIP_TAB.Controls.Add(this.WALLKILL_BUTTON);
             this.NOCLIP_TAB.Controls.Add(this.NOCLLIP_CONTROLS);
             this.NOCLIP_TAB.Controls.Add(this.NOCLIP);
             this.NOCLIP_TAB.Controls.Add(this.NOCLIP_BUTTON);
@@ -640,6 +644,30 @@ namespace RosPublicCheat
             this.NOCLIP_TAB.Size = new System.Drawing.Size(769, 308);
             this.NOCLIP_TAB.TabIndex = 2;
             this.NOCLIP_TAB.Text = "NOCLIP";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(15, 224);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(102, 32);
+            this.label3.TabIndex = 35;
+            this.label3.Text = "WallKill";
+            // 
+            // WALLKILL_BUTTON
+            // 
+            this.WALLKILL_BUTTON.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.WALLKILL_BUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WALLKILL_BUTTON.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WALLKILL_BUTTON.Location = new System.Drawing.Point(178, 224);
+            this.WALLKILL_BUTTON.Name = "WALLKILL_BUTTON";
+            this.WALLKILL_BUTTON.Size = new System.Drawing.Size(124, 32);
+            this.WALLKILL_BUTTON.TabIndex = 36;
+            this.WALLKILL_BUTTON.Text = "OFF";
+            this.WALLKILL_BUTTON.UseVisualStyleBackColor = false;
+            this.WALLKILL_BUTTON.Click += new System.EventHandler(this.Buttons_click);
             // 
             // NOCLLIP_CONTROLS
             // 
@@ -679,9 +707,7 @@ namespace RosPublicCheat
             // MISC_TAB
             // 
             this.MISC_TAB.BackColor = System.Drawing.Color.Black;
-            this.MISC_TAB.Controls.Add(this.sleep_value);
             this.MISC_TAB.Controls.Add(this.label2);
-            this.MISC_TAB.Controls.Add(this.delay_bar);
             this.MISC_TAB.Controls.Add(this.delay_label);
             this.MISC_TAB.Location = new System.Drawing.Point(4, 32);
             this.MISC_TAB.Name = "MISC_TAB";
@@ -689,16 +715,6 @@ namespace RosPublicCheat
             this.MISC_TAB.Size = new System.Drawing.Size(769, 308);
             this.MISC_TAB.TabIndex = 3;
             this.MISC_TAB.Text = "Misc";
-            // 
-            // sleep_value
-            // 
-            this.sleep_value.AutoSize = true;
-            this.sleep_value.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.sleep_value.Location = new System.Drawing.Point(300, 26);
-            this.sleep_value.Name = "sleep_value";
-            this.sleep_value.Size = new System.Drawing.Size(36, 24);
-            this.sleep_value.TabIndex = 41;
-            this.sleep_value.Text = "50";
             // 
             // label2
             // 
@@ -711,18 +727,6 @@ namespace RosPublicCheat
             this.label2.Text = "Controls the delay between drawing on screen:\r\n\r\nLesser Value: Lag Free but may c" +
     "rash more\r\nHigher Value: No crash but may lag\r\n\r\nUse whatever value is good for " +
     "you.\r\n\r\nRecommended: 50\r\n";
-            // 
-            // delay_bar
-            // 
-            this.delay_bar.LargeChange = 10;
-            this.delay_bar.Location = new System.Drawing.Point(155, 26);
-            this.delay_bar.Maximum = 200;
-            this.delay_bar.Name = "delay_bar";
-            this.delay_bar.Size = new System.Drawing.Size(124, 56);
-            this.delay_bar.SmallChange = 2;
-            this.delay_bar.TabIndex = 39;
-            this.delay_bar.Value = 50;
-            this.delay_bar.Scroll += new System.EventHandler(this.delay_bar_Scroll);
             // 
             // delay_label
             // 
@@ -746,13 +750,36 @@ namespace RosPublicCheat
             this.credit.TabIndex = 37;
             this.credit.Text = "ROS ULTRAHACK V2.1 by Ashesh";
             // 
+            // box
+            // 
+            this.box.AutoSize = true;
+            this.box.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.box.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.box.Location = new System.Drawing.Point(20, 187);
+            this.box.Name = "box";
+            this.box.Size = new System.Drawing.Size(105, 32);
+            this.box.TabIndex = 32;
+            this.box.Text = "2D BOX";
+            // 
+            // BOX_BUTTON
+            // 
+            this.BOX_BUTTON.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BOX_BUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BOX_BUTTON.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BOX_BUTTON.Location = new System.Drawing.Point(183, 187);
+            this.BOX_BUTTON.Name = "BOX_BUTTON";
+            this.BOX_BUTTON.Size = new System.Drawing.Size(124, 32);
+            this.BOX_BUTTON.TabIndex = 33;
+            this.BOX_BUTTON.Text = "OFF";
+            this.BOX_BUTTON.UseVisualStyleBackColor = false;
+            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(793, 411);
+            this.ClientSize = new System.Drawing.Size(794, 410);
             this.ControlBox = false;
             this.Controls.Add(this.credit);
             this.Controls.Add(this.TABS);
@@ -773,7 +800,6 @@ namespace RosPublicCheat
             this.NOCLIP_TAB.PerformLayout();
             this.MISC_TAB.ResumeLayout(false);
             this.MISC_TAB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.delay_bar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -828,9 +854,11 @@ namespace RosPublicCheat
         public Button AIMBOT_BUTTON;
         private Label NOCLLIP_CONTROLS;
         private TabPage MISC_TAB;
-        private TrackBar delay_bar;
         public Label delay_label;
-        private Label sleep_value;
         private Label label2;
+        public Label label3;
+        public Button WALLKILL_BUTTON;
+        public Label box;
+        public Button BOX_BUTTON;
     }
 }

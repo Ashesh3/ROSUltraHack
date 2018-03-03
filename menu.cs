@@ -39,6 +39,9 @@ namespace RosPublicCheat
             SCOPE_BUTTON.Text = (Settings.scope == 0) ? "No , X2" : "X4 , x8";
             SHOW_FOV_BUTTON.Text = (Settings.DEBUG) ? "ON" : "OFF";
             NOCLIP_BUTTON.Text = (Settings.NoClip) ? "ON" : "OFF";
+            WALLKILL_BUTTON.Text = (Settings.passthr) ? "ON" : "OFF";
+            BOX_BUTTON.Text = (Settings.BOX) ? "ON" : "OFF";
+            this.PerformLayout();
             if (Settings.menu)
             {
                 MethodInvoker ss = delegate
@@ -68,7 +71,7 @@ namespace RosPublicCheat
         static void MyHandler(object sender, UnhandledExceptionEventArgs args)
         {
             Exception e = (Exception)args.ExceptionObject;
-            MessageBox.Show("MyHandler caught : " + e.Message + "\n\n" + "Stack:\n" + e.StackTrace);
+            MessageBox.Show("Menu caught : bar is:\n"+Settings.wait+"\n\n" + e.Message + "\n\n" + "Stack:\n" + e.StackTrace);
         }
         private void Main_Load(object sender, EventArgs e)
         {
@@ -77,7 +80,7 @@ namespace RosPublicCheat
             this.TopMost = true;
             this.TopLevel = true;
 
-         //   this.DoubleBuffered = true;
+            this.DoubleBuffered = true;
             this.FormBorderStyle = FormBorderStyle.None;
             new Thread(new ThreadStart(this.thread)).Start();
             update();
@@ -92,13 +95,14 @@ namespace RosPublicCheat
             {
     
                 MethodInvoker up = delegate
-            {
-                update();
+                {
+
+                    update();
 
 
-            };
+                };
                 this.Invoke(up);
-                Thread.Sleep(100);
+                Thread.Sleep(200);
 
                
             }
@@ -181,6 +185,17 @@ namespace RosPublicCheat
                 case "NOCLIP_BUTTON":
                     Settings.NoClip = !Settings.NoClip;
                     break;
+                case "BOX_BUTTON":
+                    Settings.BOX = !Settings.BOX;
+                    break;
+                case "WALLKILL_BUTTON":
+                    Settings.passthr = !Settings.passthr;
+                    if (Settings.passthr)
+                        Mem.WriteMemory<float>(Mem.BaseAddress + 0x157CA48, -0.89999998f);
+                    else
+                        Mem.WriteMemory<float>(Mem.BaseAddress + 0x157CA48, -0.500f);
+                    Thread.Sleep(100);
+                    break;
                 default:
                     break;
             }
@@ -191,18 +206,16 @@ namespace RosPublicCheat
         private void Scrolled(object sender, EventArgs e)
         {
             Settings.Distance = RANGE_AIMBOT.Value;
+            RANGE_AIMBOT.PerformLayout();
 
         }
 
         private void FOV_BAR_Scroll(object sender, EventArgs e)
         {
             Settings.FOV = FOV_BAR.Value;
+            FOV_BAR.PerformLayout();
         }
 
-        private void delay_bar_Scroll(object sender, EventArgs e)
-        {
-            Settings.wait = delay_bar.Value;
-            sleep_value.Text = Settings.wait.ToString();
-        }
+        
     }
 }
