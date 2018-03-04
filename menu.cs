@@ -41,6 +41,7 @@ namespace RosPublicCheat
             NOCLIP_BUTTON.Text = (Settings.NoClip) ? "ON" : "OFF";
             WALLKILL_BUTTON.Text = (Settings.passthr) ? "ON" : "OFF";
             BOX_BUTTON.Text = (Settings.BOX) ? "ON" : "OFF";
+            NOGRASS_BUTTON.Text = (Settings.NoGrass) ? "ON" : "OFF";
             this.PerformLayout();
             if (Settings.menu)
             {
@@ -188,12 +189,15 @@ namespace RosPublicCheat
                 case "BOX_BUTTON":
                     Settings.BOX = !Settings.BOX;
                     break;
+                case "NOGRASS_BUTTON":
+                    Settings.NoGrass = !Settings.NoGrass;
+                    break;
                 case "WALLKILL_BUTTON":
                     Settings.passthr = !Settings.passthr;
                     if (Settings.passthr)
-                        Mem.WriteMemory<float>(Mem.BaseAddress + 0x157CA48, -0.89999998f);
+                        Mem.WriteMemory<float>(Mem.BaseAddress + Offsets.Passthrough, -0.89999998f);
                     else
-                        Mem.WriteMemory<float>(Mem.BaseAddress + 0x157CA48, -0.500f);
+                        Mem.WriteMemory<float>(Mem.BaseAddress + Offsets.Passthrough, -0.500f);
                     Thread.Sleep(100);
                     break;
                 default:

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RosPublicCheat {
+namespace RosUltra {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace RosPublicCheat {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RosPublicCheat.Main", typeof(Main).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RosUltra.Main", typeof(Main).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

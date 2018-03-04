@@ -22,7 +22,7 @@
 |   -------------   | ------------- | -------------  |      -------------      |
 | Player            | FOV           | Clipping Speed | Totally External        |
 | Item              | Height        | Position Lock  | Fullscreen Borderless   |
-| Weapon            | Distance      |                | Nuke Player***          |
+| Weapon            | Distance      |                | No Grass                |
 | Robot             | Smart Aim     |                | Chams*                  |
 | Player Health     | AimHoldKey    |                | Undetected              |
 | Player Distance   |               |                | Neat Menu               |
@@ -33,8 +33,9 @@
 | Vehicle           |               |                |                         |
 | Player Box        |               |                |                         |
 | Item Names        |               |                |                         | 
+| Vehicle Names     |               |                |                         | 
 
-```*** Doesn't work anyone, PATCHED!```
+```* Will be implemented in future update```
 
 ## Controls
 

@@ -489,9 +489,24 @@ namespace Whynot
                         }
                         if ((Maths.WorldToScreen(EnemyPos, out screen, this.Width, this.Height)))
                         {
+                            if(Settings.NoGrass)
+                            {
+                                //NOGRASS
+                                int tes1 = Mem.ReadMemory<int>(Mem.ReadMemory<int>(Mem.ReadMemory<int>(Mem.ReadMemory<int>(Mem.ReadMemory<int>(Mem.BaseAddress + Offsets.Grass) + 0) + 304) + 16) + 528);
+                                float tes2 = Mem.ReadMemory<float>(tes1 + 44);
+                                Mem.WriteMemory<float>(tes1 + 44, 1000000);
+                                //NOGRASS END
+                            }
+                            else
+                            {
+                                int tes1 = Mem.ReadMemory<int>(Mem.ReadMemory<int>(Mem.ReadMemory<int>(Mem.ReadMemory<int>(Mem.ReadMemory<int>(Mem.BaseAddress + Offsets.Grass) + 0) + 304) + 16) + 528);
+                                float tes2 = Mem.ReadMemory<float>(tes1 + 44);
+                                Mem.WriteMemory<float>(tes1 + 44, 0);
 
+                            }
                             if ((Player ? 1 : (!Bot ? 0 : ((uint)num6 > 0U ? 1 : 0))) != 0)
                             {
+
                                 if (nuke)
                                     Mem.WriteMemory<Vector3>(Adress3 + 16, MyPosition);
 
@@ -624,10 +639,50 @@ namespace Whynot
                             }
                             if (Vehicle)
                             {
-                                if (Settings.VehicleESP)
-                                    drawnawbrudda.DrawString("Vehicle", this.font, Brushes.Gold, screen.X - 10f, screen.Y);
-                                if (Settings.VehicleDistance)
-                                    drawnawbrudda.DrawString("[ " + (object)Helper.GetDistance(MyPosition, EnemyPos, 10) + " Meter]", this.font, Brushes.White, screen.X - 10f, screen.Y + 15f);
+                                //vehicle name esp - alperhan
+                                bool car, bicycle, express, motor, glider;
+                                car = str.Contains("LandCar");
+                                bicycle = str.Contains("LandBike");
+                                express = str.Contains("LandExpress");
+                                motor = str.Contains("LandMotor");
+                                glider = str.Contains("LandGlider");
+
+                                if (car)
+                                {
+                                    if (Settings.VehicleESP)
+                                        drawnawbrudda.DrawString("Car", this.font, Brushes.Gold, screen.X - 10f, screen.Y);
+                                    if (Settings.VehicleDistance)
+                                        drawnawbrudda.DrawString("[ " + (object)Helper.GetDistance(MyPosition, EnemyPos, 10) + " Metre]", this.font, Brushes.White, screen.X - 10f, screen.Y + 15f);
+
+                                }
+                                if (bicycle)
+                                {
+                                    if (Settings.VehicleESP)
+                                        drawnawbrudda.DrawString("Bicycle", this.font, Brushes.Gold, screen.X - 10f, screen.Y);
+                                    if (Settings.VehicleDistance)
+                                        drawnawbrudda.DrawString("[ " + (object)Helper.GetDistance(MyPosition, EnemyPos, 10) + " Metre]", this.font, Brushes.White, screen.X - 10f, screen.Y + 15f);
+                                }
+                                if (express)
+                                {
+                                    if (Settings.VehicleESP)
+                                        drawnawbrudda.DrawString("Express", this.font, Brushes.Gold, screen.X - 10f, screen.Y);
+                                    if (Settings.VehicleDistance)
+                                        drawnawbrudda.DrawString("[ " + (object)Helper.GetDistance(MyPosition, EnemyPos, 10) + " Metre]", this.font, Brushes.White, screen.X - 10f, screen.Y + 15f);
+                                }
+                                if (motor)
+                                {
+                                    if (Settings.VehicleESP)
+                                        drawnawbrudda.DrawString("Motor", this.font, Brushes.Gold, screen.X - 10f, screen.Y);
+                                    if (Settings.VehicleDistance)
+                                        drawnawbrudda.DrawString("[ " + (object)Helper.GetDistance(MyPosition, EnemyPos, 10) + " Metre]", this.font, Brushes.White, screen.X - 10f, screen.Y + 15f);
+                                }
+                                if (glider)
+                                {
+                                    if (Settings.VehicleESP)
+                                        drawnawbrudda.DrawString("glider", this.font, Brushes.Gold, screen.X - 10f, screen.Y);
+                                    if (Settings.VehicleDistance)
+                                        drawnawbrudda.DrawString("[ " + (object)Helper.GetDistance(MyPosition, EnemyPos, 10) + " Metre]", this.font, Brushes.White, screen.X - 10f, screen.Y + 15f);
+                                }
                             }
                             if (Plane && Settings.PlaneESP)
                             {
@@ -820,9 +875,9 @@ namespace Whynot
 
                     Settings.passthr = !Settings.passthr;
                     if (Settings.passthr)
-                        Mem.WriteMemory<float>(Mem.BaseAddress + 0x157CA48, -0.89999998f);
+                        Mem.WriteMemory<float>(Mem.BaseAddress + Offsets.Passthrough, -0.89999998f);
                     else
-                        Mem.WriteMemory<float>(Mem.BaseAddress + 0x157CA48, -0.500f);
+                        Mem.WriteMemory<float>(Mem.BaseAddress + Offsets.Passthrough, -0.500f);
                     Thread.Sleep(100);
              
             }

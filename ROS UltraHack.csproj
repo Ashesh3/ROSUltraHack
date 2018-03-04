@@ -6,10 +6,10 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{70BE3465-BDCE-4FE0-AD4F-FA2A8515FE2F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <AssemblyName>ROS Overlay Beta</AssemblyName>
+    <AssemblyName>ROS Ultra</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <RootNamespace>RosPublicCheat</RootNamespace>
+    <RootNamespace>RosUltra</RootNamespace>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>

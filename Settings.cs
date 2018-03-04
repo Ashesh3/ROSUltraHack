@@ -25,8 +25,7 @@
         public static bool passthr = false;
         public static bool SmartHeight = false;
         public static int wait = 50;
-
-
+        public static bool NoGrass = true;
         public static bool ESP = true;
         public static bool DEBUG = false;
         public static bool NoClip = false;
