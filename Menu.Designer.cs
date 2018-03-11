@@ -63,7 +63,9 @@ namespace RosPublicCheat
             this.PLANE_ESP = new System.Windows.Forms.Label();
             this.TABS = new System.Windows.Forms.TabControl();
             this.ESP_TAB = new System.Windows.Forms.TabPage();
+            this.GOLD_ITEM_ESP_BUTTON = new System.Windows.Forms.Button();
             this.box = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.BOX_BUTTON = new System.Windows.Forms.Button();
             this.AIMBOT_TAB = new System.Windows.Forms.TabPage();
             this.AIMBOT_BUTTON = new System.Windows.Forms.Button();
@@ -91,8 +93,6 @@ namespace RosPublicCheat
             this.NOGRASS_BUTTON = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.credit = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.GOLD_ITEM_ESP_BUTTON = new System.Windows.Forms.Button();
             this.TABS.SuspendLayout();
             this.ESP_TAB.SuspendLayout();
             this.AIMBOT_TAB.SuspendLayout();
@@ -442,6 +442,19 @@ namespace RosPublicCheat
             this.ESP_TAB.TabIndex = 0;
             this.ESP_TAB.Text = "VISUAL";
             // 
+            // GOLD_ITEM_ESP_BUTTON
+            // 
+            this.GOLD_ITEM_ESP_BUTTON.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.GOLD_ITEM_ESP_BUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GOLD_ITEM_ESP_BUTTON.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GOLD_ITEM_ESP_BUTTON.Location = new System.Drawing.Point(612, 93);
+            this.GOLD_ITEM_ESP_BUTTON.Name = "GOLD_ITEM_ESP_BUTTON";
+            this.GOLD_ITEM_ESP_BUTTON.Size = new System.Drawing.Size(124, 32);
+            this.GOLD_ITEM_ESP_BUTTON.TabIndex = 35;
+            this.GOLD_ITEM_ESP_BUTTON.Text = "OFF";
+            this.GOLD_ITEM_ESP_BUTTON.UseVisualStyleBackColor = false;
+            this.GOLD_ITEM_ESP_BUTTON.Click += new System.EventHandler(this.Buttons_click);
+            // 
             // box
             // 
             this.box.AutoSize = true;
@@ -452,6 +465,18 @@ namespace RosPublicCheat
             this.box.Size = new System.Drawing.Size(105, 32);
             this.box.TabIndex = 32;
             this.box.Text = "2D BOX";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(425, 93);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(146, 32);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "GOLD ITEM";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BOX_BUTTON
             // 
@@ -776,32 +801,7 @@ namespace RosPublicCheat
             this.credit.Name = "credit";
             this.credit.Size = new System.Drawing.Size(780, 53);
             this.credit.TabIndex = 37;
-            this.credit.Text = "ROS ULTRAHACK V2.1 by Ashesh";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(425, 93);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 32);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "GOLD ITEM";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // GOLD_ITEM_ESP_BUTTON
-            // 
-            this.GOLD_ITEM_ESP_BUTTON.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.GOLD_ITEM_ESP_BUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GOLD_ITEM_ESP_BUTTON.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GOLD_ITEM_ESP_BUTTON.Location = new System.Drawing.Point(612, 93);
-            this.GOLD_ITEM_ESP_BUTTON.Name = "GOLD_ITEM_ESP_BUTTON";
-            this.GOLD_ITEM_ESP_BUTTON.Size = new System.Drawing.Size(124, 32);
-            this.GOLD_ITEM_ESP_BUTTON.TabIndex = 35;
-            this.GOLD_ITEM_ESP_BUTTON.Text = "OFF";
-            this.GOLD_ITEM_ESP_BUTTON.UseVisualStyleBackColor = false;
-            this.GOLD_ITEM_ESP_BUTTON.Click += new System.EventHandler(this.Buttons_click);
+            this.credit.Text = "ROS ULTRAHACK V5 by Ashesh";
             // 
             // menu
             // 
@@ -809,7 +809,7 @@ namespace RosPublicCheat
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1068, 647);
+            this.ClientSize = new System.Drawing.Size(794, 414);
             this.ControlBox = false;
             this.Controls.Add(this.credit);
             this.Controls.Add(this.TABS);

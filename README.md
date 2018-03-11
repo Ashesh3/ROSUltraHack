@@ -36,7 +36,7 @@
 | Vehicle Names     |               |                |                         | 
 | Golden Item ESP   |               |                |                         | 
 | Colorful  Health  |               |                |                         | 
-
+|                   |               |                | New Status Menu         | 
 ```* Will be implemented in future update```
 
 ## Controls
@@ -87,6 +87,7 @@ You will need know the basic about how to compile a program using Visual Studio.
 * Brain
 
 ## Showcase:
+![alt text](https://i.imgur.com/ucjZxcF.png "Screenshot")
 ![alt text](https://i.imgur.com/4cdZRCe.png "Screenshot")
 ![alt text](https://i.imgur.com/zjJdaBZ.jpg "Screenshot")
 ![alt text](https://i.imgur.com/UiBDs3d.jpg "Screenshot")

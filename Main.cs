@@ -467,11 +467,7 @@ namespace Whynot
                         {
                             typee = "Normal (2x , red dot, no scope)";
                         }
-                        MethodInvoker inv3 = delegate
-                        {
-                            this.label3.Text = "Nuke: " + nk + " \nRange: " + Settings.Distance + " m \n" + "AIMBOT:" + aa + "\n" + "TYPE:" + typee + "\n NOCLIP: " + n + "\nSmartAim: " + a2 + " \n Height: " + height + "\n NoClip Speed: " + speed;
-                        };
-                        this.Invoke(inv3);
+
 
                         if (Settings.DEBUG)
                         {
@@ -772,6 +768,35 @@ namespace Whynot
 
         public void DrawMenu(Graphics g2)
         {
+            if (Settings.menu)
+            {
+                g2.DrawString("UltraHack by Ashesh v5", this.drawFont, Brushes.Purple, 20f, (float)(base.Height / 2 - 65));
+                g2.DrawString("┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈", this.drawFont, Brushes.White, 20f, (float)(base.Height / 2 - 50));
+                g2.DrawString("ESP Menu", this.drawFont, Brushes.Purple, 20f, (float)(base.Height / 2 - 35));
+                g2.DrawString("Player ESP: " + Settings.PlayerESP.ToString(), this.drawFont, Brushes.White, 20f, (float)(base.Height / 2 - 20));
+                g2.DrawString("Player Tracer: " + Settings.PlayerLines.ToString(), this.drawFont, Brushes.White, 20f, (float)(base.Height / 2 - 5));
+                g2.DrawString("Player 2D Box: " + Settings.BOX.ToString(), this.drawFont, Brushes.White, 20f, (float)(base.Height / 2 + 10));
+                g2.DrawString("Player Heath: " + Settings.PlayerHealth.ToString(), this.drawFont, Brushes.White, 20f, (float)(base.Height / 2 + 25));
+                g2.DrawString("Player Distance: " + Settings.PlayerDistance.ToString(), this.drawFont, Brushes.White, 20f, (float)(base.Height / 2 + 40));
+                g2.DrawString("BOT ESP: " + Settings.BotESP.ToString(), this.drawFont, Brushes.White, 20f, (float)(base.Height / 2 + 55));
+                g2.DrawString("BOT Distance: " + Settings.BotHealth.ToString(), this.drawFont, Brushes.White, 20f, (float)(base.Height / 2 + 70));
+                g2.DrawString("Item ESP: " + Settings.ItemESP.ToString(), this.drawFont, Brushes.White, 20f, (float)(base.Height / 2 + 85));
+                g2.DrawString("Golden Item ESP: " + Settings.GOLD.ToString(), this.drawFont, Brushes.White, 20f, (float)(base.Height / 2 + 100));
+                g2.DrawString("Vehicle ESP: " + Settings.VehicleESP.ToString(), this.drawFont, Brushes.White, 20f, (float)(base.Height / 2 + 115));
+                g2.DrawString("Vehicle Distance: " + Settings.VehicleDistance.ToString(), this.drawFont, Brushes.White, 20f, (float)(base.Height / 2 + 130));
+                g2.DrawString("Supply Box ESP: " + Settings.SupplyESP.ToString(), this.drawFont, Brushes.White, 20f, (float)(base.Height / 2 + 145));
+                g2.DrawString("Plane ESP: " + Settings.PlaneESP.ToString(), this.drawFont, Brushes.White, 20f, (float)(base.Height / 2 + 160));
+                g2.DrawString("Aimbot Menu", this.drawFont, Brushes.Purple, 20f, (float)(base.Height / 2 + 175));
+                if (Settings.Aimbot)
+                {
+                    g2.DrawString("Aimbot: ON", this.drawFont, Brushes.White, 20f, (float)(base.Height / 2 + 190));
+                }
+                g2.DrawString("Aimbot: OFF", this.drawFont, Brushes.White, 20f, (float)(base.Height / 2 + 190));
+                g2.DrawString("┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈", this.drawFont, Brushes.White, 20f, (float)(base.Height / 2 + 205));
+                Thread.Sleep(50);
+
+            }
+
 
             if (Main.GetAsyncKeyState(Keys.Insert))
             {
@@ -1007,7 +1032,7 @@ namespace Whynot
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 19);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Menu";
+            this.label3.Text = "";
             // 
             // Main
             // 
