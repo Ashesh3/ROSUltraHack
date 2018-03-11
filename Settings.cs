@@ -20,12 +20,13 @@
         public static bool BOX = true;
         public static int FOV = 30;
         public static bool holdkey = false;
+        public static bool GOLD = false;
         public static bool SupplyESP = false;
         public static bool PlaneESP = false;
         public static bool passthr = false;
         public static bool SmartHeight = false;
-        public static int wait = 50;
-        public static bool NoGrass = true;
+        public static int wait = 10;
+        public static bool NoGrass = false;
         public static bool ESP = true;
         public static bool DEBUG = false;
         public static bool NoClip = false;

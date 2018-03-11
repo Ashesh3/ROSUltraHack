@@ -87,10 +87,12 @@ namespace RosPublicCheat
             this.NOCLIP = new System.Windows.Forms.Label();
             this.NOCLIP_BUTTON = new System.Windows.Forms.Button();
             this.MISC_TAB = new System.Windows.Forms.TabPage();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.credit = new System.Windows.Forms.Label();
             this.NoGrassText = new System.Windows.Forms.Label();
             this.NOGRASS_BUTTON = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.credit = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.GOLD_ITEM_ESP_BUTTON = new System.Windows.Forms.Button();
             this.TABS.SuspendLayout();
             this.ESP_TAB.SuspendLayout();
             this.AIMBOT_TAB.SuspendLayout();
@@ -116,7 +118,7 @@ namespace RosPublicCheat
             this.ESP_ITEM.AutoSize = true;
             this.ESP_ITEM.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ESP_ITEM.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ESP_ITEM.Location = new System.Drawing.Point(425, 19);
+            this.ESP_ITEM.Location = new System.Drawing.Point(425, 12);
             this.ESP_ITEM.Name = "ESP_ITEM";
             this.ESP_ITEM.Size = new System.Drawing.Size(72, 32);
             this.ESP_ITEM.TabIndex = 1;
@@ -171,7 +173,7 @@ namespace RosPublicCheat
             this.ESP_ITEM_DISTANCE.AutoSize = true;
             this.ESP_ITEM_DISTANCE.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ESP_ITEM_DISTANCE.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ESP_ITEM_DISTANCE.Location = new System.Drawing.Point(425, 62);
+            this.ESP_ITEM_DISTANCE.Location = new System.Drawing.Point(425, 55);
             this.ESP_ITEM_DISTANCE.Name = "ESP_ITEM_DISTANCE";
             this.ESP_ITEM_DISTANCE.Size = new System.Drawing.Size(132, 32);
             this.ESP_ITEM_DISTANCE.TabIndex = 8;
@@ -243,7 +245,7 @@ namespace RosPublicCheat
             this.ESP_ITEM_DISTANCE_BUTTON.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ESP_ITEM_DISTANCE_BUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ESP_ITEM_DISTANCE_BUTTON.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ESP_ITEM_DISTANCE_BUTTON.Location = new System.Drawing.Point(612, 62);
+            this.ESP_ITEM_DISTANCE_BUTTON.Location = new System.Drawing.Point(612, 55);
             this.ESP_ITEM_DISTANCE_BUTTON.Name = "ESP_ITEM_DISTANCE_BUTTON";
             this.ESP_ITEM_DISTANCE_BUTTON.Size = new System.Drawing.Size(124, 32);
             this.ESP_ITEM_DISTANCE_BUTTON.TabIndex = 20;
@@ -256,7 +258,7 @@ namespace RosPublicCheat
             this.ESP_ITEM_BUTTON.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ESP_ITEM_BUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ESP_ITEM_BUTTON.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ESP_ITEM_BUTTON.Location = new System.Drawing.Point(612, 19);
+            this.ESP_ITEM_BUTTON.Location = new System.Drawing.Point(612, 12);
             this.ESP_ITEM_BUTTON.Name = "ESP_ITEM_BUTTON";
             this.ESP_ITEM_BUTTON.Size = new System.Drawing.Size(124, 32);
             this.ESP_ITEM_BUTTON.TabIndex = 21;
@@ -321,7 +323,7 @@ namespace RosPublicCheat
             this.ESP_VEHICLE_BUTTON.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ESP_VEHICLE_BUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ESP_VEHICLE_BUTTON.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ESP_VEHICLE_BUTTON.Location = new System.Drawing.Point(612, 110);
+            this.ESP_VEHICLE_BUTTON.Location = new System.Drawing.Point(612, 133);
             this.ESP_VEHICLE_BUTTON.Name = "ESP_VEHICLE_BUTTON";
             this.ESP_VEHICLE_BUTTON.Size = new System.Drawing.Size(124, 32);
             this.ESP_VEHICLE_BUTTON.TabIndex = 29;
@@ -334,7 +336,7 @@ namespace RosPublicCheat
             this.ESP_VEHICLE_DISTANCE_BUTTON.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ESP_VEHICLE_DISTANCE_BUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ESP_VEHICLE_DISTANCE_BUTTON.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ESP_VEHICLE_DISTANCE_BUTTON.Location = new System.Drawing.Point(612, 153);
+            this.ESP_VEHICLE_DISTANCE_BUTTON.Location = new System.Drawing.Point(612, 176);
             this.ESP_VEHICLE_DISTANCE_BUTTON.Name = "ESP_VEHICLE_DISTANCE_BUTTON";
             this.ESP_VEHICLE_DISTANCE_BUTTON.Size = new System.Drawing.Size(124, 32);
             this.ESP_VEHICLE_DISTANCE_BUTTON.TabIndex = 28;
@@ -347,7 +349,7 @@ namespace RosPublicCheat
             this.VEHICLE_DISTANCE.AutoSize = true;
             this.VEHICLE_DISTANCE.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VEHICLE_DISTANCE.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.VEHICLE_DISTANCE.Location = new System.Drawing.Point(425, 153);
+            this.VEHICLE_DISTANCE.Location = new System.Drawing.Point(425, 176);
             this.VEHICLE_DISTANCE.Name = "VEHICLE_DISTANCE";
             this.VEHICLE_DISTANCE.Size = new System.Drawing.Size(132, 32);
             this.VEHICLE_DISTANCE.TabIndex = 27;
@@ -358,7 +360,7 @@ namespace RosPublicCheat
             this.ESP_VEHICLE.AutoSize = true;
             this.ESP_VEHICLE.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ESP_VEHICLE.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ESP_VEHICLE.Location = new System.Drawing.Point(425, 110);
+            this.ESP_VEHICLE.Location = new System.Drawing.Point(425, 133);
             this.ESP_VEHICLE.Name = "ESP_VEHICLE";
             this.ESP_VEHICLE.Size = new System.Drawing.Size(109, 32);
             this.ESP_VEHICLE.TabIndex = 26;
@@ -405,7 +407,9 @@ namespace RosPublicCheat
             // 
             this.ESP_TAB.BackColor = System.Drawing.Color.Black;
             this.ESP_TAB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ESP_TAB.Controls.Add(this.GOLD_ITEM_ESP_BUTTON);
             this.ESP_TAB.Controls.Add(this.box);
+            this.ESP_TAB.Controls.Add(this.label2);
             this.ESP_TAB.Controls.Add(this.BOX_BUTTON);
             this.ESP_TAB.Controls.Add(this.ESP_PLAYER_DISTANCE_BUTTON);
             this.ESP_TAB.Controls.Add(this.ESP_PLAYER);
@@ -460,6 +464,7 @@ namespace RosPublicCheat
             this.BOX_BUTTON.TabIndex = 33;
             this.BOX_BUTTON.Text = "OFF";
             this.BOX_BUTTON.UseVisualStyleBackColor = false;
+            this.BOX_BUTTON.Click += new System.EventHandler(this.Buttons_click);
             // 
             // AIMBOT_TAB
             // 
@@ -739,17 +744,6 @@ namespace RosPublicCheat
             this.MISC_TAB.TabIndex = 3;
             this.MISC_TAB.Text = "Misc";
             // 
-            // credit
-            // 
-            this.credit.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.credit.Font = new System.Drawing.Font("MS Reference Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.credit.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.credit.Location = new System.Drawing.Point(9, 9);
-            this.credit.Name = "credit";
-            this.credit.Size = new System.Drawing.Size(780, 53);
-            this.credit.TabIndex = 37;
-            this.credit.Text = "ROS ULTRAHACK V2.1 by Ashesh";
-            // 
             // NoGrassText
             // 
             this.NoGrassText.AutoSize = true;
@@ -773,13 +767,49 @@ namespace RosPublicCheat
             this.NOGRASS_BUTTON.Text = "OFF";
             this.NOGRASS_BUTTON.UseVisualStyleBackColor = false;
             // 
+            // credit
+            // 
+            this.credit.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.credit.Font = new System.Drawing.Font("MS Reference Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.credit.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.credit.Location = new System.Drawing.Point(9, 9);
+            this.credit.Name = "credit";
+            this.credit.Size = new System.Drawing.Size(780, 53);
+            this.credit.TabIndex = 37;
+            this.credit.Text = "ROS ULTRAHACK V2.1 by Ashesh";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Malgun Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(425, 93);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(146, 32);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "GOLD ITEM";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // GOLD_ITEM_ESP_BUTTON
+            // 
+            this.GOLD_ITEM_ESP_BUTTON.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.GOLD_ITEM_ESP_BUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GOLD_ITEM_ESP_BUTTON.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GOLD_ITEM_ESP_BUTTON.Location = new System.Drawing.Point(612, 93);
+            this.GOLD_ITEM_ESP_BUTTON.Name = "GOLD_ITEM_ESP_BUTTON";
+            this.GOLD_ITEM_ESP_BUTTON.Size = new System.Drawing.Size(124, 32);
+            this.GOLD_ITEM_ESP_BUTTON.TabIndex = 35;
+            this.GOLD_ITEM_ESP_BUTTON.Text = "OFF";
+            this.GOLD_ITEM_ESP_BUTTON.UseVisualStyleBackColor = false;
+            this.GOLD_ITEM_ESP_BUTTON.Click += new System.EventHandler(this.Buttons_click);
+            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1056, 584);
+            this.ClientSize = new System.Drawing.Size(1068, 647);
             this.ControlBox = false;
             this.Controls.Add(this.credit);
             this.Controls.Add(this.TABS);
@@ -860,5 +890,7 @@ namespace RosPublicCheat
         public Button BOX_BUTTON;
         public Label NoGrassText;
         public Button NOGRASS_BUTTON;
+        public Button GOLD_ITEM_ESP_BUTTON;
+        public Label label2;
     }
 }

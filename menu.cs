@@ -42,6 +42,7 @@ namespace RosPublicCheat
             WALLKILL_BUTTON.Text = (Settings.passthr) ? "ON" : "OFF";
             BOX_BUTTON.Text = (Settings.BOX) ? "ON" : "OFF";
             NOGRASS_BUTTON.Text = (Settings.NoGrass) ? "ON" : "OFF";
+            GOLD_ITEM_ESP_BUTTON.Text = (Settings.GOLD) ? "ON" : "OFF";
             this.PerformLayout();
             if (Settings.menu)
             {
@@ -191,6 +192,9 @@ namespace RosPublicCheat
                     break;
                 case "NOGRASS_BUTTON":
                     Settings.NoGrass = !Settings.NoGrass;
+                    break;
+                case "GOLD_ITEM_ESP_BUTTON":
+                    Settings.GOLD = !Settings.GOLD;
                     break;
                 case "WALLKILL_BUTTON":
                     Settings.passthr = !Settings.passthr;

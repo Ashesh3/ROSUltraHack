@@ -34,6 +34,8 @@
 | Player Box        |               |                |                         |
 | Item Names        |               |                |                         | 
 | Vehicle Names     |               |                |                         | 
+| Golden Item ESP   |               |                |                         | 
+| Colorful  Health  |               |                |                         | 
 
 ```* Will be implemented in future update```
 

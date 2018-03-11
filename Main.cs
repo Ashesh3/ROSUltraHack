@@ -19,6 +19,7 @@ namespace Whynot
         public static bool nuke = false;
         public string WINDOW_NAME = "null";
         public static int speed = 2;
+        private Font drawFont = new Font("Tahoma", 10f);
         public static int num1;
         public static int w = 0; //310;
         public static Vector3 MyPosition = new Vector3();
@@ -519,31 +520,80 @@ namespace Whynot
                                 }
                                 if(Settings.BOX)
                                 {
-                                    //2D Box  - IndigoCDN
-                                    float entityHeight = 21.5f;
-                                    Vector2 pRoot;
+                                    //2D Box
+                                    float entityHeight  = 21.5f;
+                                    Vector2 pRoot = default(Vector2);
                                     Maths.WorldToScreen(EnemyPos, out pRoot, this.Width, this.Height);
-                                    Vector3 eHead = new Vector3() { X = EnemyPos.X, Y = EnemyPos.Y + entityHeight, Z = EnemyPos.Z };
-                                    Vector2 pHead;
+                                    Vector3 eHead = default(Vector3);
+                                    eHead.X = EnemyPos.X;
+                                    eHead.Y = EnemyPos.Y + entityHeight;
+                                    eHead.Z = EnemyPos.Z;
+                                    Vector2 pHead = default(Vector2);
                                     Maths.WorldToScreen(eHead, out pHead, this.Width, this.Height);
+                                    Rectangle rectangle2 = default(Rectangle);
+                                    float dist2= (float)Helper.GetDistance(Main.MyPosition, EnemyPos, 10);
+                                    rectangle2.Width = (int)(700 / dist2);
+                                    if (rectangle2.Width > 100)
+                                    {
+                                        rectangle2.Width = 100;
+                                    }
+                                    rectangle2.Height = (int)(pRoot.Y - pHead.Y);
+                                    rectangle2.X = (int)pRoot.X - rectangle2.Width / 2;
+                                    rectangle2.Y = (int)pRoot.Y - rectangle2.Height;
+                                    if (dist2 > 25f)
+                                    {
+                                        rectangle2.Y = (int)pRoot.Y - rectangle2.Height + 15;
+                                    }
+                                    drawnawbrudda.DrawRectangle(new Pen(Color.Purple), rectangle2);
 
-                                    Rectangle rect = new Rectangle();
-                                    float dist2 = Helper.GetDistance(MyPosition, EnemyPos, 10);
-                                    rect.Width = (int)(700 / dist2);
-                                    if (rect.Width > 100) rect.Width = 100;
-                                    rect.Height = (int)(pRoot.Y - pHead.Y);
-
-                                    rect.X = (int)pRoot.X - rect.Width / 2;
-                                    rect.Y = (int)pRoot.Y - (rect.Height);
-                                    if (dist2 > 25)
-                                        rect.Y = ((int)pRoot.Y - (rect.Height)) + 15;
-                                    drawnawbrudda.DrawRectangle(new Pen(Color.Purple), rect);
                                     //2D Box
                                 }
-                               
+
 
                                 if (Settings.PlayerHealth)
-                                    drawnawbrudda.DrawString("[ " + (object)num6 + "HP ]", this.font, Brushes.Aqua, screen.X - 15f, screen.Y + 15f);
+                                    {
+                                        if (num6 >= 100)
+                                        {
+                                            drawnawbrudda.DrawString("▪▪▪▪▪▪▪▪▪▪", this.font, Brushes.Green, screen.X - 10f, screen.Y + 15f);
+                                        }
+                                        if (num6 >= 90)
+                                        {
+                                            drawnawbrudda.DrawString("▪▪▪▪▪▪▪▪▪ ", this.font, Brushes.LimeGreen, screen.X - 10f, screen.Y + 15f);
+                                        }
+                                        if (num6 >= 80)
+                                        {
+                                            drawnawbrudda.DrawString("▪▪▪▪▪▪▪▪  ", this.font, Brushes.Lime, screen.X - 10f, screen.Y + 15f);
+                                        }
+                                        if (num6 >= 70)
+                                        {
+                                            drawnawbrudda.DrawString("▪▪▪▪▪▪▪   ", this.font, Brushes.LawnGreen, screen.X - 10f, screen.Y + 15f);
+                                        }
+                                        if (num6 >= 60)
+                                        {
+                                            drawnawbrudda.DrawString("▪▪▪▪▪▪    ", this.font, Brushes.GreenYellow, screen.X - 10f, screen.Y + 15f);
+                                        }
+                                        if (num6 >= 50)
+                                        {
+                                            drawnawbrudda.DrawString("▪▪▪▪▪     ", this.font, Brushes.Orange, screen.X - 10f, screen.Y + 15f);
+                                        }
+                                        if (num6 >= 40)
+                                        {
+                                            drawnawbrudda.DrawString("▪▪▪▪      ", this.font, Brushes.DarkOrange, screen.X - 10f, screen.Y + 15f);
+                                        }
+                                        if (num6 >= 30)
+                                        {
+                                            drawnawbrudda.DrawString("▪▪▪       ", this.font, Brushes.OrangeRed, screen.X - 10f, screen.Y + 15f);
+                                        }
+                                        if (num6 >= 20)
+                                        {
+                                            drawnawbrudda.DrawString("▪▪        ", this.font, Brushes.Red, screen.X - 10f, screen.Y + 15f);
+                                        }
+                                        if (num6 >= 10)
+                                        {
+                                            drawnawbrudda.DrawString("▪         ", this.font, Brushes.DarkRed, screen.X - 10f, screen.Y + 15f);
+                                        }
+                                    }
+                                
 
 
                                 if (Settings.PlayerDistance)
@@ -612,10 +662,22 @@ namespace Whynot
                                 int propID = Mem.ReadMemory<int>(Mem.ReadMemory<int>(cliententitytableptr + 0x2C) + 0x8);
                                 string itemName;
                                 Helper.Items.TryGetValue(propID, out itemName);
-                                if (Settings.ItemESP)
-                                    drawnawbrudda.DrawString(itemName, this.font, Brushes.Green, screen.X - 10f, screen.Y);
-                                if (Settings.ItemDistance)
-                                    drawnawbrudda.DrawString("[ " + (object)Helper.GetDistance(MyPosition, EnemyPos, 10) + " Meter]", this.font, Brushes.White, screen.X - 10f, screen.Y + 15f);
+                                if (Settings.GOLD)
+                                {
+                                    if (itemName == "Ghillie Suit" || itemName == "SMG QD-EX-Mag" || itemName == "8x Scope" || itemName == "4x Scope" || itemName == "SR EX-QD-Mag" || itemName == "Rifle EX-QD-Mag" || itemName == "RPG Ammo" || itemName == "SR Ammo" || itemName == "Rifle Ammo" || itemName == "SMG Silencer" || itemName == "SR Silence" || itemName == "Rifle Silencer" || itemName == "AUG Rifle" || itemName == "M110 Sniper Rifle" || itemName == "SVD SR" || itemName == "Thompson SMG" || itemName == "M14EBR Rifle" || itemName == "Lv 3 helmet" || itemName == "Lv 3 Armor" || itemName == "Lv 3 Backpack" || itemName == "First Aid Kit" || itemName == "Med Kit" || itemName == "Bandage" || itemName == "M4A1 Rifle" || itemName == "AKM Rifle" || itemName == "AWM SR" || itemName == "Barett SR")
+                                    {
+
+                                        drawnawbrudda.DrawString(itemName, this.drawFont, Brushes.Gold, screen.X - 10f, screen.Y);
+                                        drawnawbrudda.DrawString("[ " + Helper.GetDistance(Main.MyPosition, EnemyPos, 10) + "m ]", this.drawFont, Brushes.Gold, screen.X - 10f, screen.Y + 15f);
+                                    }
+                                }
+                                else
+                                {
+                                    if (Settings.ItemESP)
+                                        drawnawbrudda.DrawString(itemName, this.font, Brushes.Green, screen.X - 10f, screen.Y);
+                                    if (Settings.ItemDistance)
+                                        drawnawbrudda.DrawString("[ " + (object)Helper.GetDistance(MyPosition, EnemyPos, 10) + " Meter]", this.font, Brushes.White, screen.X - 10f, screen.Y + 15f);
+                                }
                             }
                             if (weapon)
                             {

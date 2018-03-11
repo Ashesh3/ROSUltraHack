@@ -1,4 +1,4 @@
-namespace Whynot
+﻿namespace Whynot
 {
     internal class Offsets
     {
